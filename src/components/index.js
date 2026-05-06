@@ -26,3 +26,4 @@ export {
   StarsCanvas
 };
 export { default as Footer } from './Footer';
+export { default as Testimonials } from './Testimonials';
