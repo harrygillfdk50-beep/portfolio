@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { menu, close } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -11,91 +11,78 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`${styles.paddingX} w-full flex items-center py-4 fixed top-0 z-20 transition-all duration-300 ${
+        scrolled
+          ? "bg-primary/90 backdrop-blur-md shadow-sm border-b border-lavender/10"
+          : "bg-transparent"
       }`}
     >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
+      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
-          to='/'
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
+          to="/"
+          className="flex items-center gap-2"
+          onClick={() => { setActive(""); window.scrollTo(0, 0); }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Adrian &nbsp;
-            <span className='sm:block hidden'> | JavaScript Mastery</span>
-          </p>
+          <span className="text-lavender-deep text-[22px] font-black tracking-tight">
+            Harry<span className="text-lavender">.</span>
+          </span>
         </Link>
 
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
+                active === nav.title ? "text-lavender-deep" : "text-secondary"
+              } hover:text-lavender-deep text-[16px] font-medium cursor-pointer transition-colors duration-200 relative group`}
               onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-lavender group-hover:w-full transition-all duration-300" />
             </li>
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-[26px] h-[26px] object-contain cursor-pointer"
+            style={{ filter: "invert(40%) sepia(20%) saturate(800%) hue-rotate(220deg)" }}
             onClick={() => setToggle(!toggle)}
           />
-
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+          <motion.div
+            initial={false}
+            animate={toggle ? { opacity: 1, y: 0, pointerEvents: "auto" } : { opacity: 0, y: -10, pointerEvents: "none" }}
+            className="p-6 bg-primary/95 backdrop-blur-md border border-lavender/20 shadow-lavender absolute top-16 right-4 min-w-[160px] z-10 rounded-2xl"
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+            <ul className="list-none flex flex-col gap-5">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
+                  className={`font-medium cursor-pointer text-[15px] ${
+                    active === nav.title ? "text-lavender-deep" : "text-secondary"
+                  } hover:text-lavender-deep transition-colors`}
+                  onClick={() => { setToggle(false); setActive(nav.title); }}
                 >
                   <a href={`#${nav.id}`}>{nav.title}</a>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
