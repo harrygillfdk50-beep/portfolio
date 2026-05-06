@@ -75,14 +75,17 @@ const Navbar = () => {
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-medium cursor-pointer text-[15px] pl-3 border-l-2 transition-all duration-200 ${
+                  className={`font-medium text-[15px] pl-3 border-l-2 transition-all duration-200 ${
                     active === nav.title
                       ? "text-lavender-deep border-lavender-deep"
-                      : "text-secondary border-transparent hover:text-lavender-deep hover:border-lavender hover:pl-4"
+                      : "text-secondary border-transparent"
                   }`}
-                  onClick={() => { setToggle(false); setActive(nav.title); }}
                 >
-                  <a href={`#${nav.id}`} className="block py-2.5 min-h-[44px] flex items-center">
+                  <a
+                    href={`#${nav.id}`}
+                    onClick={() => { setToggle(false); setActive(nav.title); }}
+                    className="block py-2.5 min-h-[44px] flex items-center hover:text-lavender-deep hover:pl-1 transition-all duration-200"
+                  >
                     {nav.title}
                   </a>
                 </li>

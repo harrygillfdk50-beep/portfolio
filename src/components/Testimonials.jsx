@@ -31,10 +31,19 @@ const TestimonialCard = ({ index, testimonial, name, designation, company, image
 
 const Testimonials = () => (
   <>
-    <motion.div variants={textVariant()}>
-      <p className={styles.sectionSubText}>What Clients Say</p>
-      <h2 className={styles.sectionHeadText}>Kind Words.</h2>
-    </motion.div>
+    <div className="relative overflow-hidden">
+      <span
+        aria-hidden="true"
+        className="absolute -top-6 left-0 font-black text-lavender/5 leading-none select-none pointer-events-none uppercase"
+        style={{ fontSize: "clamp(4.5rem, 11vw, 9rem)", letterSpacing: "-0.04em", whiteSpace: "nowrap" }}
+      >
+        WORDS
+      </span>
+      <motion.div variants={textVariant()} className="relative z-10">
+        <p className={styles.sectionSubText}>What Clients Say</p>
+        <h2 className={styles.sectionHeadText}>Kind Words.</h2>
+      </motion.div>
+    </div>
     <div className="mt-14 flex flex-col sm:flex-row flex-wrap gap-6 justify-start">
       {testimonials.map((t, index) => (
         <TestimonialCard key={t.name} index={index} {...t} />

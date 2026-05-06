@@ -106,7 +106,7 @@ const Works = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-8 text-secondary text-[16px] max-w-3xl leading-relaxed"
+        className="mt-8 text-secondary text-[16px] sm:text-[17px] max-w-3xl leading-[1.7]"
       >
         Here are a few projects I've designed and built for real clients — each one crafted to be
         beautiful, easy to use, and built to make a strong impression.

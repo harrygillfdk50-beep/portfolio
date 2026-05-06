@@ -73,7 +73,7 @@ body {
 }
 
 .blue-text-gradient {
-  background: linear-gradient(to top, #6B5B95, #c4b8e8);
+  background: linear-gradient(to top, #6B5B95, #E8E0F5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -280,6 +280,7 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   .orb-float,
   .orb-float-delay,

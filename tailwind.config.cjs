@@ -8,6 +8,7 @@ module.exports = {
         secondary: "#7A7A7A",
         tertiary: "#F3EFE8",
         lavender: "#A090CC",
+        "lavender-mid": "#9B8EC4",
         "lavender-deep": "#7260A0",
         "lavender-light": "#E8E0F5",
         "ink": "#1E1530",
