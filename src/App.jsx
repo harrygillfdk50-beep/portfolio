@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import {
   About,
   Contact,
+  CustomCursor,
   Experience,
   Feedbacks,
   Footer,
@@ -14,6 +15,7 @@ import {
 
 const App = () => (
   <BrowserRouter>
+    <CustomCursor />
     <div className="relative z-0 bg-primary min-h-screen">
       <div className="relative">
         <Navbar />

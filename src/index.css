@@ -288,3 +288,31 @@ body {
     animation: none !important;
   }
 }
+
+/* Disable react-vertical-timeline-component default animations — GSAP handles them */
+.vertical-timeline-element-content { animation: none !important; visibility: visible !important; }
+.vertical-timeline-element { opacity: 1 !important; }
+
+/* Custom cursor — pointer:fine devices only */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+  .cursor-dot {
+    position: fixed;
+    top: 0; left: 0;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #9B8EC4;
+    pointer-events: none;
+    z-index: 99999;
+    margin-left: -5px; margin-top: -5px;
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, margin 0.2s ease;
+    will-change: transform;
+    mix-blend-mode: multiply;
+  }
+  .cursor-dot--hovered {
+    width: 24px; height: 24px;
+    margin-left: -12px; margin-top: -12px;
+    background: #6B5B95;
+    opacity: 0.75;
+  }
+}

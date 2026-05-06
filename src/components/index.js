@@ -27,3 +27,4 @@ export {
 };
 export { default as Footer } from './Footer';
 export { default as Testimonials } from './Testimonials';
+export { default as CustomCursor } from './CustomCursor';
