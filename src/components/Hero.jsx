@@ -15,41 +15,54 @@ const Hero = () => {
   const wordIndex = useRef(0);
 
   useEffect(() => {
+    // Letter reveal
     if (nameRef.current) {
       const letters = nameRef.current.querySelectorAll(".letter");
       gsap.fromTo(
         letters,
-        { opacity: 0, y: 60, rotateX: -90 },
+        { opacity: 0, y: 40, rotateX: -90, filter: "blur(4px)" },
         {
           opacity: 1,
           y: 0,
           rotateX: 0,
-          duration: 0.06,
-          stagger: 0.06,
-          ease: "back.out(1.7)",
-          delay: 0.3,
+          filter: "blur(0px)",
+          duration: 0.7,
+          stagger: 0.045,
+          ease: "back.out(1.4)",
+          delay: 0.2,
+          transformOrigin: "50% 0%",
         }
       );
     }
 
-    const cycleFn = () => {
-      if (!cycleRef.current) return;
-      wordIndex.current = (wordIndex.current + 1) % CYCLING_WORDS.length;
-      gsap.to(cycleRef.current, {
-        opacity: 0,
-        y: -20,
-        duration: 0.3,
-        onComplete: () => {
-          if (cycleRef.current) {
-            cycleRef.current.textContent = CYCLING_WORDS[wordIndex.current];
-            gsap.to(cycleRef.current, { opacity: 1, y: 0, duration: 0.4 });
-          }
-        },
-      });
+    // Scramble cycling
+    const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    const scrambleTo = (el, targetWord) => {
+      let iteration = 0;
+      const maxIterations = targetWord.length * 3;
+      const scrambleInterval = setInterval(() => {
+        el.textContent = targetWord
+          .split("")
+          .map((char, i) => {
+            if (i < Math.floor(iteration / 3)) return char;
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          })
+          .join("");
+        iteration++;
+        if (iteration > maxIterations) {
+          clearInterval(scrambleInterval);
+          el.textContent = targetWord;
+        }
+      }, 30);
     };
 
-    const interval = setInterval(cycleFn, 2200);
-    return () => clearInterval(interval);
+    const cycleInterval = setInterval(() => {
+      if (!cycleRef.current) return;
+      wordIndex.current = (wordIndex.current + 1) % CYCLING_WORDS.length;
+      scrambleTo(cycleRef.current, CYCLING_WORDS[wordIndex.current]);
+    }, 2500);
+
+    return () => clearInterval(cycleInterval);
   }, []);
 
   return (
@@ -124,13 +137,13 @@ const Hero = () => {
           >
             <a
               href="#projects"
-              className="px-7 py-3 rounded-full bg-lavender-deep text-white font-semibold text-[15px] hover:bg-lavender transition-all duration-300 shadow-lavender hover:shadow-lg hover:-translate-y-0.5"
+              className="px-7 py-3 rounded-full bg-lavender-deep text-white font-semibold text-[15px] hover:bg-lavender transition-all duration-300 shadow-lavender hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-[1px]"
             >
               See My Work
             </a>
             <a
               href="#contact"
-              className="px-7 py-3 rounded-full border-2 border-lavender text-lavender-deep font-semibold text-[15px] hover:bg-lavender hover:text-white transition-all duration-300 hover:-translate-y-0.5"
+              className="px-7 py-3 rounded-full border-2 border-lavender text-lavender-deep font-semibold text-[15px] hover:bg-lavender hover:text-white transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-[1px]"
             >
               Get In Touch
             </a>
