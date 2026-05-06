@@ -85,7 +85,7 @@ const Hero = () => {
         <div className="z-10">
           <h1
             ref={nameRef}
-            className={styles.heroHeadText}
+            className={`${styles.heroHeadText} hero-head-fluid`}
             style={{ perspective: "600px" }}
           >
             {"Hi, I'm ".split("").map((char, i) => (
