@@ -21,7 +21,7 @@ const StatCounter = ({ value, suffix, label }) => {
     const el = numRef.current;
     if (!el) return;
     const obj = { val: 0 };
-    gsap.to(obj, {
+    const tween = gsap.to(obj, {
       val: value,
       duration: 2,
       ease: "power2.out",
@@ -30,6 +30,10 @@ const StatCounter = ({ value, suffix, label }) => {
         if (el) el.textContent = Math.round(obj.val) + suffix;
       },
     });
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
   }, [value, suffix]);
 
   return (
@@ -55,11 +59,9 @@ const About = () => {
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-6 text-secondary text-[16px] sm:text-[17px] max-w-3xl leading-[32px]"
+        className="mt-6 text-secondary text-[17px] sm:text-[18px] max-w-3xl leading-[1.75]"
       >
-        I'm Harry, and I believe a great website shouldn't feel complicated — for you or your customers.
-        I design and build websites that are clear, beautiful, and easy to navigate, helping businesses
-        make a strong first impression every time.
+        I'm a Canadian designer and front-end developer who's spent the last three years working with restaurants, startups, and independent brands to make their websites work as hard as they do. I care about the details most clients never see — the micro-interaction that builds trust, the hierarchy that makes a decision feel easy, the load time that keeps someone on the page.
       </motion.p>
 
       <motion.div

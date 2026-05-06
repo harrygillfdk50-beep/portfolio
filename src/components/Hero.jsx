@@ -13,19 +13,22 @@ const Hero = () => {
   const nameRef = useRef(null);
   const cycleRef = useRef(null);
   const wordIndex = useRef(0);
+  const scrambleRefs = useRef([]);
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     // Letter reveal
-    if (nameRef.current) {
+    if (!prefersReduced && nameRef.current) {
       const letters = nameRef.current.querySelectorAll(".letter");
       gsap.fromTo(
         letters,
-        { opacity: 0, y: 40, rotateX: -90, filter: "blur(4px)" },
+        { opacity: 0, y: 40, rotateX: -90, scale: 0.85 },
         {
           opacity: 1,
           y: 0,
           rotateX: 0,
-          filter: "blur(0px)",
+          scale: 1,
           duration: 0.7,
           stagger: 0.045,
           ease: "back.out(1.4)",
@@ -40,7 +43,7 @@ const Hero = () => {
     const scrambleTo = (el, targetWord) => {
       let iteration = 0;
       const maxIterations = targetWord.length * 3;
-      const scrambleInterval = setInterval(() => {
+      const id = setInterval(() => {
         el.textContent = targetWord
           .split("")
           .map((char, i) => {
@@ -50,11 +53,18 @@ const Hero = () => {
           .join("");
         iteration++;
         if (iteration > maxIterations) {
-          clearInterval(scrambleInterval);
+          clearInterval(id);
+          scrambleRefs.current = scrambleRefs.current.filter(i => i !== id);
           el.textContent = targetWord;
         }
       }, 30);
+      scrambleRefs.current.push(id);
     };
+
+    if (prefersReduced) {
+      if (cycleRef.current) cycleRef.current.textContent = CYCLING_WORDS[0];
+      return;
+    }
 
     const cycleInterval = setInterval(() => {
       if (!cycleRef.current) return;
@@ -62,7 +72,10 @@ const Hero = () => {
       scrambleTo(cycleRef.current, CYCLING_WORDS[wordIndex.current]);
     }, 2500);
 
-    return () => clearInterval(cycleInterval);
+    return () => {
+      clearInterval(cycleInterval);
+      scrambleRefs.current.forEach(clearInterval);
+    };
   }, []);
 
   return (
@@ -77,8 +90,19 @@ const Hero = () => {
       <div className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}>
         {/* Lavender accent line */}
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-lavender" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          <motion.div
+            className="w-5 h-5 rounded-full bg-lavender"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.15, duration: 0.4, ease: "backOut" }}
+          />
+          <motion.div
+            className="w-1 sm:h-80 h-40 violet-gradient"
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: 1 }}
+            transition={{ delay: 0.3, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            style={{ transformOrigin: "top" }}
+          />
         </div>
 
         {/* Text */}
@@ -125,7 +149,7 @@ const Hero = () => {
             transition={{ delay: 1.2, duration: 0.7 }}
             className="mt-4 text-secondary text-[15px] sm:text-[17px] max-w-[500px] leading-relaxed"
           >
-            I believe a great website shouldn't feel complicated — for you or your customers.
+            I turn complex briefs into clean, beautiful websites that actually convert.
           </motion.p>
 
           {/* CTA buttons */}

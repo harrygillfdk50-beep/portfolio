@@ -12,7 +12,7 @@ const TestimonialCard = ({ index, testimonial, name, designation, company, image
   >
     <div className="flex items-start gap-3">
       <span className="text-lavender text-[40px] leading-none font-black select-none">"</span>
-      <p className="text-secondary text-[14px] leading-relaxed mt-3 flex-1">{testimonial}</p>
+      <p className="text-secondary text-[16px] sm:text-[17px] leading-[1.75] mt-3 flex-1">{testimonial}</p>
     </div>
     <div className="flex items-center gap-3 mt-auto pt-4 border-t border-lavender/10">
       <img
@@ -22,7 +22,8 @@ const TestimonialCard = ({ index, testimonial, name, designation, company, image
       />
       <div>
         <p className="text-text-dark font-bold text-[15px]">{name}</p>
-        <p className="text-lavender text-[12px] font-medium">{designation} · {company}</p>
+        <p className="text-secondary text-[11px] font-normal">{designation}</p>
+        <p className="text-lavender-deep text-[12px] font-semibold">{company}</p>
       </div>
     </div>
   </motion.div>

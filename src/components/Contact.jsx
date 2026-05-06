@@ -35,7 +35,7 @@ const ContactCard = ({ icon, label, value, href, hint, index }) => (
     className="flex flex-col items-center p-8 bg-cream-card rounded-2xl border border-lavender/15 shadow-card min-w-[220px] flex-1 transition-shadow duration-300"
   >
     <span className="text-[40px] mb-4">{icon}</span>
-    <p className="text-lavender font-semibold text-[12px] uppercase tracking-widest mb-1">{label}</p>
+    <p className="text-lavender-deep font-semibold text-[12px] uppercase tracking-widest mb-1">{label}</p>
     {href ? (
       <a
         href={href}
@@ -53,7 +53,7 @@ const ContactCard = ({ icon, label, value, href, hint, index }) => (
 const Contact = () => (
   <div className="xl:mt-12">
     <motion.div variants={textVariant()}>
-      <p className={styles.sectionSubText}>Get In Touch</p>
+      <p className={styles.sectionSubText}>Start A Project</p>
       <h2 className={styles.sectionHeadText}>Let's Work Together.</h2>
     </motion.div>
 
@@ -61,8 +61,20 @@ const Contact = () => (
       variants={fadeIn("", "", 0.1, 1)}
       className="mt-4 text-secondary text-[16px] max-w-2xl leading-relaxed"
     >
-      Have a project in mind? Send me a message and let's talk about how I can help your business look its best online.
+      Let's build something your customers will love. Drop me a message and I'll get back to you within 24 hours.
     </motion.p>
+
+    <motion.blockquote
+      variants={fadeIn("", "", 0.05, 0.8)}
+      className="mb-10 pl-5 border-l-4 border-lavender max-w-xl"
+    >
+      <p className="text-secondary text-[15px] italic leading-relaxed">
+        "Harry completely transformed our restaurant's online presence. Bookings went up and customers keep complimenting how easy the website is to use."
+      </p>
+      <cite className="mt-3 block text-lavender-deep text-[13px] font-semibold not-italic">
+        — Marco Rossi, Owner · Saffron Kitchen
+      </cite>
+    </motion.blockquote>
 
     <div className="mt-12 flex flex-wrap gap-6">
       {contactItems.map((item, index) => (
