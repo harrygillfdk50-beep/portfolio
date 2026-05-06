@@ -32,9 +32,9 @@ const ContactCard = ({ icon, label, value, href, hint, index }) => (
   <motion.div
     variants={fadeIn("up", "spring", index * 0.15, 0.75)}
     whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(107,91,149,0.2)" }}
-    className="flex flex-col items-center p-8 bg-cream-card rounded-2xl border border-lavender/15 shadow-card min-w-[220px] flex-1 transition-shadow duration-300"
+    className="group flex flex-col items-center p-8 bg-cream-card rounded-2xl border border-lavender/15 shadow-card min-w-[220px] flex-1 transition-shadow duration-300"
   >
-    <span className="text-[40px] mb-4">{icon}</span>
+    <span className="text-[40px] mb-4 inline-block group-hover:[animation:iconBounce_0.5s_ease_forwards]">{icon}</span>
     <p className="text-lavender-deep font-semibold text-[12px] uppercase tracking-widest mb-1">{label}</p>
     {href ? (
       <a
