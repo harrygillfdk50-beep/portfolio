@@ -35,12 +35,12 @@ const StatCounter = ({ value, suffix, label }) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", 0.3, 0.8)}
-      className="flex flex-col items-center p-6 bg-cream-card rounded-2xl shadow-card border border-lavender/10 min-w-[130px]"
+      className="flex flex-col items-center p-8 bg-cream-card rounded-2xl shadow-card border border-lavender/10 min-w-[130px]"
     >
-      <span ref={numRef} className="text-[42px] font-black text-lavender-deep leading-none">
+      <span ref={numRef} className="text-[42px] font-black text-lavender-deep leading-none" style={{ fontVariantNumeric: "tabular-nums" }}>
         0{suffix}
       </span>
-      <span className="text-secondary text-[13px] mt-2 text-center font-medium">{label}</span>
+      <span className="text-secondary text-[13px] mt-3 text-center font-medium">{label}</span>
     </motion.div>
   );
 };
@@ -64,7 +64,7 @@ const About = () => {
 
       <motion.div
         variants={fadeIn("up", "spring", 0.2, 0.8)}
-        className="mt-12 flex flex-wrap gap-6 justify-start"
+        className="mt-16 flex flex-wrap gap-8 sm:gap-10 justify-start"
       >
         {stats.map((stat) => (
           <StatCounter key={stat.label} {...stat} />
