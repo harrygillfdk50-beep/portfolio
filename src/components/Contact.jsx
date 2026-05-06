@@ -1,136 +1,75 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
-
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
+import { fadeIn, textVariant } from "../utils/motion";
 
-const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+const contactItems = [
+  {
+    icon: "✉️",
+    label: "Email",
+    value: "harrygillfdk50@gmail.com",
+    href: "mailto:harrygillfdk50@gmail.com",
+    hint: "Send me an email anytime",
+  },
+  {
+    icon: "💬",
+    label: "Phone",
+    value: "+1 437 250 1904",
+    href: "sms:+14372501904",
+    hint: "Messages only please",
+  },
+  {
+    icon: "📍",
+    label: "Location",
+    value: "Canada",
+    href: null,
+    hint: "Available for remote work worldwide",
+  },
+];
 
-  const [loading, setLoading] = useState(false);
+const ContactCard = ({ icon, label, value, href, hint, index }) => (
+  <motion.div
+    variants={fadeIn("up", "spring", index * 0.15, 0.75)}
+    whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(107,91,149,0.2)" }}
+    className="flex flex-col items-center p-8 bg-cream-card rounded-2xl border border-lavender/15 shadow-card min-w-[220px] flex-1 transition-shadow duration-300"
+  >
+    <span className="text-[40px] mb-4">{icon}</span>
+    <p className="text-lavender font-semibold text-[12px] uppercase tracking-widest mb-1">{label}</p>
+    {href ? (
+      <a
+        href={href}
+        className="text-text-dark font-bold text-[16px] hover:text-lavender-deep transition-colors text-center break-all"
+      >
+        {value}
+      </a>
+    ) : (
+      <p className="text-text-dark font-bold text-[16px] text-center">{value}</p>
+    )}
+    <p className="text-secondary text-[12px] mt-2 text-center">{hint}</p>
+  </motion.div>
+);
 
-  const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+const Contact = () => (
+  <div className="xl:mt-12">
+    <motion.div variants={textVariant()}>
+      <p className={styles.sectionSubText}>Get In Touch</p>
+      <h2 className={styles.sectionHeadText}>Let's Work Together.</h2>
+    </motion.div>
 
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    emailjs
-      .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "JavaScript Mastery",
-          from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
-  };
-
-  return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+    <motion.p
+      variants={fadeIn("", "", 0.1, 1)}
+      className="mt-4 text-secondary text-[16px] max-w-2xl leading-relaxed"
     >
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
-      >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+      Have a project in mind? Send me a message and let's talk about how I can help your business look its best online.
+    </motion.p>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
-        >
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
-            <input
-              type='text'
-              name='name'
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-            />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your email</span>
-            <input
-              type='email'
-              name='email'
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-            />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
-            <textarea
-              rows={7}
-              name='message'
-              value={form.message}
-              onChange={handleChange}
-              placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-            />
-          </label>
-
-          <button
-            type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
-        </form>
-      </motion.div>
-
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-      >
-        <EarthCanvas />
-      </motion.div>
+    <div className="mt-12 flex flex-wrap gap-6">
+      {contactItems.map((item, index) => (
+        <ContactCard key={item.label} index={index} {...item} />
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default SectionWrapper(Contact, "contact");
