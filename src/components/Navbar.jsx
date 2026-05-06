@@ -23,17 +23,17 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`${styles.paddingX} w-full flex items-center py-4 fixed top-0 z-20 transition-all duration-300 ${
         scrolled
-          ? "bg-primary/90 backdrop-blur-md shadow-sm border-b border-lavender/10"
+          ? "navbar-glass border-b border-lavender/10"
           : "bg-transparent"
       }`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 group"
           onClick={() => { setActive(""); window.scrollTo(0, 0); }}
         >
-          <span className="text-lavender-deep text-[22px] font-black tracking-tight">
+          <span className="text-lavender-deep text-[22px] font-black tracking-tight group-hover:text-lavender transition-colors duration-200">
             Harry<span className="text-lavender">.</span>
           </span>
         </Link>
@@ -54,13 +54,18 @@ const Navbar = () => {
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
-          <img
-            src={toggle ? close : menu}
-            alt="menu"
-            className="w-[26px] h-[26px] object-contain cursor-pointer"
-            style={{ filter: "invert(40%) sepia(20%) saturate(800%) hue-rotate(220deg)" }}
+          <button
             onClick={() => setToggle(!toggle)}
-          />
+            className="w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-lavender/10 transition-colors duration-200 -mr-2"
+            aria-label={toggle ? "Close menu" : "Open menu"}
+          >
+            <img
+              src={toggle ? close : menu}
+              alt=""
+              className="w-[22px] h-[22px] object-contain"
+              style={{ filter: "invert(40%) sepia(20%) saturate(800%) hue-rotate(220deg)" }}
+            />
+          </button>
           <motion.div
             initial={false}
             animate={toggle ? { opacity: 1, y: 0, pointerEvents: "auto" } : { opacity: 0, y: -10, pointerEvents: "none" }}
