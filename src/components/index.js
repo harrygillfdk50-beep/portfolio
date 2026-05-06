@@ -20,8 +20,9 @@ export {
   Feedbacks,
   Contact,
   CanvasLoader,
-  EarthCanvas, 
-  BallCanvas, 
-  ComputersCanvas, 
+  EarthCanvas,
+  BallCanvas,
+  ComputersCanvas,
   StarsCanvas
 };
+export { default as Footer } from './Footer';
