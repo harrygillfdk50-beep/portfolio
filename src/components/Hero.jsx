@@ -52,8 +52,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const nameText = "Hi, I'm Harry";
-
   return (
     <section className="relative w-full h-screen mx-auto overflow-hidden">
       {/* Floating lavender orbs */}
