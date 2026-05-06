@@ -63,7 +63,7 @@ const experiences = [
     iconBg: "#E8E0F5",
     date: "2022 – Present",
     points: [
-      "Designing websites and digital experiences for small businesses, restaurants, and startups across North America.",
+      "Delivered end-to-end website projects for restaurants, independent retailers, and early-stage startups — from first brief to live site.",
       "Managing end-to-end projects from initial brief to final handoff — including wireframes, prototypes, and responsive builds.",
       "Building ongoing client relationships with clear communication and timely delivery.",
       "Specialising in making complex ideas simple and beautiful for non-technical clients.",
@@ -113,10 +113,10 @@ const testimonials = [
     image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
-    testimonial: "Harry built our startup landing page in record time. Clean, professional, and exactly the first impression we needed to attract investors.",
+    testimonial: "Harry asked the right questions from day one. The page he built communicated our product in under ten seconds — which was exactly the brief.",
     name: "James Liu",
     designation: "CEO",
-    company: "LaunchPad",
+    company: "Groundwork",
     image: "https://randomuser.me/api/portraits/men/55.jpg",
   },
 ];
@@ -147,7 +147,7 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "LaunchPad",
+    name: "Groundwork",
     description:
       "A bold, conversion-focused landing page for an early-stage startup — designed to communicate their product's value in seconds and turn visitors into sign-ups.",
     tags: [

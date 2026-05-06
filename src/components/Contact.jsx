@@ -61,7 +61,7 @@ const Contact = () => (
       variants={fadeIn("", "", 0.1, 1)}
       className="mt-4 text-secondary text-[16px] max-w-2xl leading-relaxed"
     >
-      Let's build something your customers will love. Drop me a message and I'll get back to you within 24 hours.
+      Whether you have a finished brief or just a rough idea, I'm easy to talk to and quick to respond — usually within 24 hours.
     </motion.p>
 
     <motion.blockquote
@@ -69,10 +69,10 @@ const Contact = () => (
       className="mb-10 pl-5 border-l-4 border-lavender max-w-xl"
     >
       <p className="text-secondary text-[15px] italic leading-relaxed">
-        "Harry completely transformed our restaurant's online presence. Bookings went up and customers keep complimenting how easy the website is to use."
+        "Working with Harry was seamless. He understood our brand from the first call and delivered a website that finally matched our quality."
       </p>
       <cite className="mt-3 block text-lavender-deep text-[13px] font-semibold not-italic">
-        — Marco Rossi, Owner · Saffron Kitchen
+        — Priya Sharma, Founder · Velour Studio
       </cite>
     </motion.blockquote>
 

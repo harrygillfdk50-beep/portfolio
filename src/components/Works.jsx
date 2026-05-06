@@ -68,22 +68,29 @@ const Works = () => {
   useEffect(() => {
     const el = marqueeRef.current;
     if (!el) return;
-    const totalWidth = el.scrollWidth / 2;
-    const tween = gsap.to(el, {
-      x: -totalWidth,
-      duration: 24,
-      ease: "none",
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
-      },
+    let tween;
+    const raf = requestAnimationFrame(() => {
+      const totalWidth = el.scrollWidth / 2;
+      if (totalWidth === 0) return;
+      tween = gsap.to(el, {
+        x: -totalWidth,
+        duration: 24,
+        ease: "none",
+        repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => {
+            const val = parseFloat(x) % totalWidth;
+            return val > 0 ? val - totalWidth : val;
+          }),
+        },
+      });
     });
-    return () => tween.kill();
+    return () => { cancelAnimationFrame(raf); tween?.kill(); };
   }, []);
 
   return (
     <>
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <span
           aria-hidden="true"
           className="absolute -top-8 left-0 font-black text-lavender/5 leading-none select-none pointer-events-none whitespace-nowrap uppercase"
@@ -105,8 +112,8 @@ const Works = () => {
         beautiful, easy to use, and built to make a strong impression.
       </motion.p>
 
-      <div className="mt-8 mb-6 overflow-hidden w-full">
-        <div ref={marqueeRef} className="flex gap-3 w-max">
+      <div className="mt-8 mb-6 overflow-hidden w-full" aria-hidden="true">
+        <div ref={marqueeRef} className="flex gap-3 w-max will-change-transform">
           {[...SKILLS, ...SKILLS].map((skill, i) => (
             <span
               key={i}
@@ -135,7 +142,7 @@ const Works = () => {
         <p className="text-secondary text-[16px]">Like what you see?</p>
         <a
           href="#contact"
-          className="px-7 py-3 rounded-full bg-lavender-deep text-white font-semibold text-[15px] hover:bg-lavender transition-all duration-300 shadow-lavender hover:-translate-y-0.5"
+          className="px-7 py-3 rounded-full bg-lavender-deep text-white font-semibold text-[15px] hover:bg-lavender transition-all duration-300 shadow-lavender hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none active:scale-[0.97]"
         >
           Start a Project →
         </a>
@@ -144,4 +151,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "projects");
+export default SectionWrapper(Works, "work");

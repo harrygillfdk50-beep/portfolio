@@ -21,14 +21,13 @@ const App = () => (
       </div>
       <About />
       <div className="section-alt">
-        <Feedbacks />
-      </div>
-      {/* Tech stays on primary */}
-      <Tech />
-      <div className="section-alt">
         <Works />
       </div>
-      <Testimonials />
+      <Feedbacks />
+      <div className="section-alt">
+        <Testimonials />
+      </div>
+      <Tech />
       <Experience />
       <div className="relative z-0">
         <Contact />

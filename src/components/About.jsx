@@ -4,7 +4,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
+import { fadeIn, textVariant, cardGridContainer, cardReveal } from "../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -38,7 +38,7 @@ const StatCounter = ({ value, suffix, label }) => {
 
   return (
     <motion.div
-      variants={fadeIn("up", "spring", 0.3, 0.8)}
+      variants={cardReveal}
       className="flex flex-col items-center p-8 bg-cream-card rounded-2xl shadow-card border border-lavender/10 min-w-[130px]"
     >
       <span ref={numRef} className="text-[42px] font-black text-lavender-deep leading-none" style={{ fontVariantNumeric: "tabular-nums" }}>
@@ -52,20 +52,29 @@ const StatCounter = ({ value, suffix, label }) => {
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Who I Am</p>
-        <h2 className={styles.sectionHeadText}>About Me.</h2>
-      </motion.div>
+      <div className="relative overflow-hidden">
+        <span
+          aria-hidden="true"
+          className="absolute -top-6 left-0 font-black text-lavender/5 leading-none select-none pointer-events-none uppercase"
+          style={{ fontSize: "clamp(4.5rem, 11vw, 9rem)", letterSpacing: "-0.04em", whiteSpace: "nowrap" }}
+        >
+          ABOUT
+        </span>
+        <motion.div variants={textVariant()} className="relative z-10">
+          <p className={styles.sectionSubText}>Who I Am</p>
+          <h2 className={styles.sectionHeadText}>About Me.</h2>
+        </motion.div>
+      </div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-6 text-secondary text-[17px] sm:text-[18px] max-w-3xl leading-[1.75]"
       >
-        I'm a Canadian designer and front-end developer who's spent the last three years working with restaurants, startups, and independent brands to make their websites work as hard as they do. I care about the details most clients never see — the micro-interaction that builds trust, the hierarchy that makes a decision feel easy, the load time that keeps someone on the page.
+        I'm a Canadian designer and front-end developer who's spent the last three years working with restaurants, startups, and independent brands to make their websites work as hard as they do. I care about the details most clients never see — the micro-interaction that builds trust, the hierarchy that makes a decision feel easy, the load time that keeps someone on the page. Most of my clients come back — not because I'm the cheapest option, but because they stopped having to think about their website.
       </motion.p>
 
       <motion.div
-        variants={fadeIn("up", "spring", 0.2, 0.8)}
+        variants={cardGridContainer(0.15, 0.2)}
         className="mt-16 flex flex-wrap gap-8 sm:gap-10 justify-start"
       >
         {stats.map((stat) => (
