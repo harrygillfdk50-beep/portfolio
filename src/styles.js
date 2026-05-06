@@ -6,12 +6,12 @@ const styles = {
   heroHeadText:
     "font-black text-text-dark mt-2 leading-[1.08] tracking-[-0.025em]",
   heroSubText:
-    "text-lavender-deep font-medium lg:text-[28px] sm:text-[22px] xs:text-[18px] text-[15px] lg:leading-[40px]",
+    "text-lavender-deep font-medium lg:text-[28px] sm:text-[22px] xs:text-[18px] text-[15px] leading-[1.4]",
 
   sectionHeadText:
-    "text-text-dark font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
+    "text-text-dark font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] leading-[1.1] tracking-[-0.02em]",
   sectionSubText:
-    "sm:text-[18px] text-[14px] text-lavender uppercase tracking-wider font-semibold",
+    "sm:text-[18px] text-[14px] text-lavender uppercase tracking-[0.12em] font-semibold",
 };
 
 export { styles };

@@ -20,9 +20,14 @@ const App = () => (
         <Hero />
       </div>
       <About />
-      <Feedbacks />
+      <div className="section-alt">
+        <Feedbacks />
+      </div>
+      {/* Tech stays on primary */}
       <Tech />
-      <Works />
+      <div className="section-alt">
+        <Works />
+      </div>
       <Testimonials />
       <Experience />
       <div className="relative z-0">

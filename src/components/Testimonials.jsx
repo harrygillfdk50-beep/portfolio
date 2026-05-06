@@ -8,7 +8,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 const TestimonialCard = ({ index, testimonial, name, designation, company, image }) => (
   <motion.div
     variants={fadeIn("up", "spring", index * 0.2, 0.75)}
-    className="bg-cream-card p-8 rounded-2xl border border-lavender/10 shadow-card flex flex-col gap-5 flex-1 min-w-[280px] max-w-[380px]"
+    className="bg-cream-card p-6 sm:p-8 rounded-2xl border border-lavender/10 shadow-card flex flex-col gap-5 w-full sm:flex-1 sm:min-w-[280px] sm:max-w-[380px]"
   >
     <div className="flex items-start gap-3">
       <span className="text-lavender text-[40px] leading-none font-black select-none">"</span>
@@ -35,7 +35,7 @@ const Testimonials = () => (
       <p className={styles.sectionSubText}>What Clients Say</p>
       <h2 className={styles.sectionHeadText}>Kind Words.</h2>
     </motion.div>
-    <div className="mt-14 flex flex-wrap gap-6 justify-start">
+    <div className="mt-14 flex flex-col sm:flex-row flex-wrap gap-6 justify-start">
       {testimonials.map((t, index) => (
         <TestimonialCard key={t.name} index={index} {...t} />
       ))}

@@ -161,7 +161,7 @@ const Hero = () => {
           >
             <a
               href="#projects"
-              className="px-7 py-3 rounded-full bg-lavender-deep text-white font-semibold text-[15px] hover:bg-lavender transition-all duration-300 shadow-lavender hover:shadow-lg hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-[1px]"
+              className="px-8 py-3.5 rounded-full bg-lavender-deep text-white font-bold text-[15px] hover:bg-[#4a3a7a] transition-all duration-300 shadow-[0_8px_30px_rgba(107,91,149,0.45)] hover:shadow-[0_12px_40px_rgba(107,91,149,0.6)] hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-[1px]"
             >
               See My Work
             </a>

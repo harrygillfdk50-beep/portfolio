@@ -21,22 +21,22 @@ const services = [
   {
     title: "UI Design",
     icon: web,
-    description: "Beautiful interfaces your users will love",
+    description: "Interfaces that look premium on day one — and hold up across every screen size.",
   },
   {
     title: "UX Design",
     icon: mobile,
-    description: "Experiences that are easy and enjoyable to use",
+    description: "Every click, scroll, and decision point designed so users get where they're going without friction.",
   },
   {
     title: "Web Development",
     icon: backend,
-    description: "Clean, fast websites built to perform",
+    description: "React and Tailwind builds that load fast, scale cleanly, and hand off without headaches.",
   },
   {
     title: "Brand & Visual Design",
     icon: creator,
-    description: "A consistent look that makes your brand memorable",
+    description: "Visual systems that travel — from your website to your social to your business card, without losing coherence.",
   },
 ];
 
