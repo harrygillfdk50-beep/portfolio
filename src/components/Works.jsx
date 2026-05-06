@@ -10,7 +10,7 @@ const ProjectCard = ({ index, name, description, tags, gradient }) => (
   <motion.div variants={fadeIn("up", "spring", index * 0.2, 0.75)}>
     <Tilt
       options={{ max: 12, scale: 1.02, speed: 400 }}
-      className="bg-cream-card p-5 rounded-2xl sm:w-[340px] w-full border border-lavender/10 card-deep"
+      className="bg-cream-card p-6 rounded-2xl sm:w-[340px] w-full border border-lavender/10 card-deep"
     >
       <div
         className="relative w-full h-[200px] rounded-xl overflow-hidden group cursor-pointer"
@@ -54,13 +54,13 @@ const Works = () => (
 
     <motion.p
       variants={fadeIn("", "", 0.1, 1)}
-      className="mt-4 text-secondary text-[16px] max-w-3xl leading-[30px]"
+      className="mt-8 text-secondary text-[16px] max-w-3xl leading-relaxed"
     >
       Here are a few projects I've designed and built for real clients — each one crafted to be
       beautiful, easy to use, and built to make a strong impression.
     </motion.p>
 
-    <div className="mt-14 flex flex-wrap gap-7" id="projects">
+    <div className="mt-14 flex flex-wrap gap-8" id="projects">
       {projects.map((project, index) => (
         <ProjectCard key={`project-${index}`} index={index} {...project} />
       ))}
