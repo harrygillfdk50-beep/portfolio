@@ -60,13 +60,6 @@ body {
   background-clip: text;
 }
 
-.green-text-gradient {
-  background: linear-gradient(to top, #6B5B95, #9B8EC4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .blue-text-gradient {
   background: linear-gradient(to top, #6B5B95, #c4b8e8);
   -webkit-background-clip: text;
@@ -85,7 +78,7 @@ body {
   background: linear-gradient(-90deg, #9B8EC4 0%, rgba(155, 142, 196, 0) 100%);
 }
 
-.black-gradient {
+.lavender-gradient-h {
   background: linear-gradient(to right, #9B8EC4, #6B5B95);
 }
 

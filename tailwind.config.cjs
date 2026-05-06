@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
-  mode: "jit",
   theme: {
     extend: {
       colors: {
@@ -23,10 +22,7 @@ module.exports = {
       },
       screens: {
         xs: "375px",
-        sm: "390px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
+        phone: "414px",
       },
       backgroundImage: {
         "hero-pattern": "none",
