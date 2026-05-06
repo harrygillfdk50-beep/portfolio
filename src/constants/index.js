@@ -4,260 +4,158 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
   reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
   figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
 } from "../assets";
 
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "work", title: "Work" },
+  { id: "projects", title: "Projects" },
+  { id: "contact", title: "Contact" },
 ];
 
 const services = [
   {
-    title: "Web Developer",
+    title: "UI Design",
     icon: web,
+    description: "Beautiful interfaces your users will love",
   },
   {
-    title: "React Native Developer",
+    title: "UX Design",
     icon: mobile,
+    description: "Experiences that are easy and enjoyable to use",
   },
   {
-    title: "Backend Developer",
+    title: "Web Development",
     icon: backend,
+    description: "Clean, fast websites built to perform",
   },
   {
-    title: "Content Creator",
+    title: "Brand & Visual Design",
     icon: creator,
+    description: "A consistent look that makes your brand memorable",
   },
 ];
 
 const technologies = [
-  {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
-    name: "JavaScript",
-    icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
-  },
-  {
-    name: "React JS",
-    icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+  { name: "Figma", icon: figma, category: "design" },
+  { name: "Adobe XD", icon: figma, category: "design" },
+  { name: "Photoshop", icon: figma, category: "design" },
+  { name: "Framer", icon: figma, category: "design" },
+  { name: "Sketch", icon: figma, category: "design" },
+  { name: "HTML & CSS", icon: html, category: "dev" },
+  { name: "JavaScript", icon: javascript, category: "dev" },
+  { name: "React", icon: reactjs, category: "dev" },
+  { name: "Tailwind CSS", icon: css, category: "dev" },
+  { name: "Responsive Design", icon: mobile, category: "dev" },
+  { name: "Prototyping", icon: creator, category: "dev" },
+  { name: "User Research", icon: backend, category: "dev" },
 ];
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Freelance UI/UX Designer",
+    company_name: "Self-Employed · Canada",
+    icon: creator,
+    iconBg: "#E8E0F5",
+    date: "2022 – Present",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Designing websites and digital experiences for small businesses, restaurants, and startups across North America.",
+      "Managing end-to-end projects from initial brief to final handoff — including wireframes, prototypes, and responsive builds.",
+      "Building ongoing client relationships with clear communication and timely delivery.",
+      "Specialising in making complex ideas simple and beautiful for non-technical clients.",
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "Junior Front-End Designer",
+    company_name: "Pixel & Co. Agency",
+    icon: web,
+    iconBg: "#E8E0F5",
+    date: "2021 – 2022",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built and styled web interfaces from Figma designs for a range of agency clients.",
+      "Collaborated with developers and clients to deliver responsive, on-brand websites on schedule.",
+      "Gained hands-on experience with React, Tailwind CSS, and client-facing design reviews.",
+      "Contributed to 12+ live client projects across retail, hospitality, and tech industries.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    title: "Design Intern",
+    company_name: "Bright Studio",
+    icon: mobile,
+    iconBg: "#E8E0F5",
+    date: "2020 – 2021",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Assisted senior designers with UI mockups, wireframes, and brand asset production.",
+      "Worked on visual identity and web design projects for local businesses and non-profits.",
+      "Developed a strong foundation in design principles, typography, and colour theory.",
+      "Delivered polished assets on tight deadlines in a fast-paced studio environment.",
     ],
   },
 ];
 
 const testimonials = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    testimonial: "Harry completely transformed our restaurant's online presence. Bookings went up and customers keep complimenting how easy the website is to use.",
+    name: "Marco Rossi",
+    designation: "Owner",
+    company: "Saffron Kitchen",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    testimonial: "Working with Harry was seamless from start to finish. He listened to what we needed and delivered something even better than we imagined.",
+    name: "Priya Sharma",
+    designation: "Founder",
+    company: "Velour Studio",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    testimonial: "Harry built our startup landing page in record time. Clean, professional, and exactly the first impression we needed to attract investors.",
+    name: "James Liu",
+    designation: "CEO",
+    company: "LaunchPad",
+    image: "https://randomuser.me/api/portraits/men/55.jpg",
   },
 ];
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Saffron Kitchen",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "A warm, elegant website for a fine-dining restaurant — designed to showcase the menu, atmosphere, and reservation experience in a way that makes guests excited before they even arrive.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "UI Design", color: "lavender-text-gradient" },
+      { name: "Web Design", color: "blue-text-gradient" },
+      { name: "Figma", color: "pink-text-gradient" },
     ],
-    image: carrent,
+    gradient: "linear-gradient(135deg, #c8a882 0%, #8B5E3C 100%)",
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "Velour Studio",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "A minimal, fashion-forward online store for an independent clothing brand — focused on clean product presentation, smooth browsing, and a checkout experience that feels effortless.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "E-commerce", color: "lavender-text-gradient" },
+      { name: "UX Design", color: "blue-text-gradient" },
+      { name: "Branding", color: "pink-text-gradient" },
     ],
-    image: jobit,
+    gradient: "linear-gradient(135deg, #d4b8c7 0%, #8B5572 100%)",
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "LaunchPad",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A bold, conversion-focused landing page for an early-stage startup — designed to communicate their product's value in seconds and turn visitors into sign-ups.",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "Landing Page", color: "lavender-text-gradient" },
+      { name: "UX Design", color: "blue-text-gradient" },
+      { name: "Startup", color: "pink-text-gradient" },
     ],
-    image: tripguide,
+    gradient: "linear-gradient(135deg, #9B8EC4 0%, #6B5B95 100%)",
     source_code_link: "https://github.com/",
   },
 ];
