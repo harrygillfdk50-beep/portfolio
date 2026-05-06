@@ -162,6 +162,7 @@ const Hero = () => {
             ref={nameRef}
             className={`${styles.heroHeadText} hero-head-fluid`}
             style={{ perspective: "600px" }}
+            onMouseEnter={handleNameHover}
           >
             {"Hi, I'm ".split("").map((char, i) => (
               <span
