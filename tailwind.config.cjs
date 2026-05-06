@@ -5,21 +5,34 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
-        "black-100": "#100d25",
-        "black-200": "#090325",
-        "white-100": "#f3f3f3",
+        primary: "#FAF7F2",
+        secondary: "#7A7A7A",
+        tertiary: "#F3EFE8",
+        lavender: "#9B8EC4",
+        "lavender-deep": "#6B5B95",
+        "lavender-light": "#E8E0F5",
+        "cream-card": "#F3EFE8",
+        "text-dark": "#2C2C2C",
+        "black-100": "#F0EBE0",
+        "black-200": "#EDE6D8",
+        "white-100": "#2C2C2C",
       },
       boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
+        card: "0px 10px 40px -10px rgba(107, 91, 149, 0.2)",
+        lavender: "0px 0px 20px rgba(155, 142, 196, 0.4)",
       },
       screens: {
-        xs: "450px",
+        xs: "375px",
+        sm: "390px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
       },
       backgroundImage: {
-        "hero-pattern": "url('/src/assets/herobg.png')",
+        "hero-pattern": "none",
+      },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
