@@ -5,8 +5,8 @@ export const textVariant = (delay) => ({
     opacity: 1,
     transition: {
       type: "spring",
-      stiffness: 90,
-      damping: 16,
+      stiffness: 100,
+      damping: 20,
       delay: delay || 0,
     },
   },
@@ -14,8 +14,8 @@ export const textVariant = (delay) => ({
 
 export const fadeIn = (direction, type, delay, duration) => ({
   hidden: {
-    x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
-    y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+    x: direction === "left" ? 60 : direction === "right" ? -60 : 0,
+    y: direction === "up" ? 60 : direction === "down" ? -60 : 0,
     opacity: 0,
   },
   show: {
@@ -24,8 +24,8 @@ export const fadeIn = (direction, type, delay, duration) => ({
     opacity: 1,
     transition: {
       type: type || "spring",
-      stiffness: type === "spring" ? 80 : undefined,
-      damping: type === "spring" ? 18 : undefined,
+      stiffness: type === "spring" ? 100 : undefined,
+      damping: type === "spring" ? 20 : undefined,
       delay: delay || 0,
       duration: type !== "spring" ? duration : undefined,
       ease: type !== "spring" ? "easeOut" : undefined,
@@ -38,7 +38,7 @@ export const zoomIn = (delay, duration) => ({
   show: {
     scale: 1,
     opacity: 1,
-    transition: { type: "spring", stiffness: 80, damping: 18, delay: delay || 0 },
+    transition: { type: "spring", stiffness: 100, damping: 20, delay: delay || 0 },
   },
 });
 
@@ -50,7 +50,7 @@ export const slideIn = (direction, type, delay, duration) => ({
   show: {
     x: 0,
     y: 0,
-    transition: { type: "spring", stiffness: 80, damping: 18, delay: delay || 0 },
+    transition: { type: "spring", stiffness: 100, damping: 20, delay: delay || 0 },
   },
 });
 
@@ -75,11 +75,12 @@ export const cardGridContainer = (stagger = 0.12, delay = 0) => ({
 });
 
 export const cardReveal = {
-  hidden: { opacity: 0, y: 48, scale: 0.96 },
+  hidden: { opacity: 0, y: 32, rotateX: -8 },
   show: {
     opacity: 1,
     y: 0,
+    rotateX: 0,
     scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 20 },
+    transition: { type: "spring", stiffness: 180, damping: 22 },
   },
 };

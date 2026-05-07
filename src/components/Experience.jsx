@@ -11,16 +11,64 @@ import { textVariant } from "../utils/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CARD_STYLE = {
-  background: "#F3EFE8",
-  color: "#2C2C2C",
-  borderRadius: "16px",
-  boxShadow: "0 4px 20px rgba(107,91,149,0.15)",
-  border: "1px solid rgba(155,142,196,0.2)",
+const TimelineSpine = ({ containerRef }) => {
+  const pathRef = useRef(null);
+
+  useEffect(() => {
+    const path = pathRef.current;
+    const container = containerRef.current;
+    if (!path || !container) return;
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const length = container.offsetHeight;
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+
+    const tween = gsap.to(path, {
+      strokeDashoffset: 0,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container,
+        start: "top 75%",
+        end: "bottom 25%",
+        scrub: 2,
+      },
+    });
+
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
+  }, [containerRef]);
+
+  return (
+    <svg
+      aria-hidden="true"
+      className="absolute top-0 pointer-events-none timeline-spine"
+      style={{ width: 4, height: "100%", zIndex: 0 }}
+    >
+      <path
+        ref={pathRef}
+        d="M 2 0 L 2 10000"
+        stroke="#606c38"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  );
 };
-const ARROW_STYLE = { borderRight: "7px solid #F3EFE8" };
-const ICON_STYLE = { background: "#E8E0F5", border: "3px solid #9B8EC4" };
-const TIMELINE_LINE = "#9B8EC4";
+
+const CARD_STYLE = {
+  background: "var(--color-cream-card)",
+  color: "var(--color-text-dark, #283618)",
+  borderRadius: "16px",
+  boxShadow: "0 4px 20px rgba(96,108,56,0.15)",
+  border: "1px solid rgba(96,108,56,0.18)",
+};
+const ARROW_STYLE = { borderRight: "7px solid var(--color-cream-card)" };
+const ICON_STYLE = { background: "var(--color-lavender-light)", border: "3px solid var(--color-lavender-mid)" };
 
 const ExperienceCard = ({ experience, index }) => {
   const cardRef = useRef(null);
@@ -29,10 +77,15 @@ const ExperienceCard = ({ experience, index }) => {
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) { el.style.opacity = 1; return; }
+    gsap.set(el, { opacity: 0, x: isLeft ? -80 : 80 });
 
-    gsap.fromTo(el,
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) {
+      gsap.set(el, { opacity: 1, x: 0 });
+      return;
+    }
+
+    const tween = gsap.fromTo(el,
       { opacity: 0, x: isLeft ? -80 : 80, y: 20 },
       {
         opacity: 1, x: 0, y: 0, duration: 0.75, ease: "power3.out",
@@ -40,12 +93,13 @@ const ExperienceCard = ({ experience, index }) => {
       }
     );
     return () => {
-      ScrollTrigger.getAll().filter(st => st.vars.trigger === el).forEach(st => st.kill());
+      tween.scrollTrigger?.kill();
+      tween.kill();
     };
   }, [isLeft]);
 
   return (
-    <div ref={cardRef} style={{ opacity: 0 }}>
+    <div ref={cardRef}>
       <VerticalTimelineElement
         contentStyle={CARD_STYLE}
         contentArrowStyle={ARROW_STYLE}
@@ -64,7 +118,7 @@ const ExperienceCard = ({ experience, index }) => {
       >
         <div>
           <h3 className="text-text-dark text-[20px] font-bold">{experience.title}</h3>
-          <p className="text-lavender-deep text-[14px] font-semibold mt-1" style={{ margin: "4px 0 0" }}>
+          <p className="text-lavender-deep text-[14px] font-semibold mt-1">
             {experience.company_name}
           </p>
         </div>
@@ -72,7 +126,7 @@ const ExperienceCard = ({ experience, index }) => {
           {experience.points.map((point, index) => (
             <li
               key={`exp-point-${index}`}
-              className="text-secondary text-[14px] pl-1 leading-relaxed"
+              className="text-secondary text-[14px] pl-1 leading-[1.7]"
             >
               {point}
             </li>
@@ -83,20 +137,25 @@ const ExperienceCard = ({ experience, index }) => {
   );
 };
 
-const Experience = () => (
-  <>
-    <motion.div variants={textVariant()}>
-      <p className={`${styles.sectionSubText} text-center`}>My Journey</p>
-      <h2 className={`${styles.sectionHeadText} text-center`}>Work Experience.</h2>
-    </motion.div>
-    <div className="mt-16 flex flex-col">
-      <VerticalTimeline lineColor={TIMELINE_LINE}>
-        {experiences.map((experience, index) => (
-          <ExperienceCard key={`experience-${index}`} experience={experience} index={index} />
-        ))}
-      </VerticalTimeline>
-    </div>
-  </>
-);
+const Experience = () => {
+  const timelineContainerRef = useRef(null);
 
-export default SectionWrapper(Experience, "work");
+  return (
+    <>
+      <motion.div variants={textVariant()}>
+        <p className={`${styles.sectionSubText} text-center`}>Track Record</p>
+        <h2 className={`${styles.sectionHeadText} text-center`}>Work Experience.</h2>
+      </motion.div>
+      <div ref={timelineContainerRef} className="relative mt-12">
+        <TimelineSpine containerRef={timelineContainerRef} />
+        <VerticalTimeline lineColor="transparent">
+          {experiences.map((experience, index) => (
+            <ExperienceCard key={`experience-${index}`} experience={experience} index={index} />
+          ))}
+        </VerticalTimeline>
+      </div>
+    </>
+  );
+};
+
+export default SectionWrapper(Experience, "experience");

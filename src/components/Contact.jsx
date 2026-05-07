@@ -1,116 +1,60 @@
-import React, { useRef } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
+import { useBooking } from "../context/BookingContext";
 
-const contactItems = [
-  {
-    icon: "✉️",
-    label: "Email",
-    value: "harrygillfdk50@gmail.com",
-    href: "mailto:harrygillfdk50@gmail.com",
-    hint: "Send me an email anytime",
-  },
-  {
-    icon: "💬",
-    label: "Phone",
-    value: "+1 437 250 1904",
-    href: "sms:+14372501904",
-    hint: "Messages only please",
-  },
-  {
-    icon: "📍",
-    label: "Location",
-    value: "Canada",
-    href: null,
-    hint: "Available for remote work worldwide",
-  },
-];
-
-const MagneticEmoji = ({ children }) => {
-  const ref = useRef(null);
-  const rawX = useMotionValue(0);
-  const rawY = useMotionValue(0);
-  const x = useSpring(rawX, { stiffness: 280, damping: 22, mass: 0.6 });
-  const y = useSpring(rawY, { stiffness: 280, damping: 22, mass: 0.6 });
-
-  const handleMouseMove = (e) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    rawX.set((e.clientX - (rect.left + rect.width / 2)) * 0.35);
-    rawY.set((e.clientY - (rect.top + rect.height / 2)) * 0.35);
-  };
-  const handleMouseLeave = () => { rawX.set(0); rawY.set(0); };
-
+const Contact = () => {
+  const { open: openBooking } = useBooking();
   return (
-    <motion.span
-      ref={ref}
-      style={{ x, y }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="text-[40px] mb-4 inline-block select-none"
-      aria-hidden="true"
-    >
-      {children}
-    </motion.span>
-  );
-};
-
-const ContactCard = ({ icon, label, value, href, hint, index }) => (
-  <motion.div
-    variants={fadeIn("up", "spring", index * 0.15, 0.75)}
-    whileHover={{ y: -6, boxShadow: "0 12px 40px rgba(107,91,149,0.2)" }}
-    className="flex flex-col items-center p-8 bg-cream-card rounded-2xl border border-lavender/15 shadow-card min-w-[220px] flex-1 transition-shadow duration-300"
-  >
-    <MagneticEmoji>{icon}</MagneticEmoji>
-    <p className="text-lavender-deep font-semibold text-[12px] uppercase tracking-widest mb-1">{label}</p>
-    {href ? (
-      <a
-        href={href}
-        className="text-text-dark font-bold text-[16px] hover:text-lavender-deep transition-colors text-center break-all"
-      >
-        {value}
-      </a>
-    ) : (
-      <p className="text-text-dark font-bold text-[16px] text-center">{value}</p>
-    )}
-    <p className="text-secondary text-[12px] mt-2 text-center">{hint}</p>
-  </motion.div>
-);
-
-const Contact = () => (
   <div className="xl:mt-12">
-    <motion.div variants={textVariant()}>
-      <p className={styles.sectionSubText}>Start A Project</p>
-      <h2 className={styles.sectionHeadText}>Let's Work Together.</h2>
-    </motion.div>
+    <div className="relative overflow-hidden mb-6">
+      <span
+        aria-hidden="true"
+        className="absolute -top-4 left-0 text-lavender/5 font-black pointer-events-none select-none whitespace-nowrap leading-none"
+        style={{ fontSize: "clamp(4.5rem, 11vw, 9rem)" }}
+      >
+        HELLO
+      </span>
+      <motion.div variants={textVariant()}>
+        <p className={styles.sectionSubText}>No pressure, no jargon</p>
+        <h2 className={styles.sectionHeadText}>Let's Work Together.</h2>
+      </motion.div>
+    </div>
 
     <motion.p
       variants={fadeIn("", "", 0.1, 1)}
-      className="mt-4 text-secondary text-[16px] max-w-2xl leading-relaxed"
+      className="mt-6 text-text-dark text-[18px] font-medium max-w-xl leading-[1.65]"
     >
-      Whether you have a finished brief or just a rough idea, I'm easy to talk to and quick to respond — usually within 24 hours.
+      Every project starts with a 15-minute call.{" "}
+      <span className="text-secondary font-normal">
+        You don't need a deck or a spec — just tell me what's not working. I'll take it from there.
+      </span>
     </motion.p>
 
-    <motion.blockquote
-      variants={fadeIn("", "", 0.05, 0.8)}
-      className="mb-10 pl-5 border-l-4 border-lavender max-w-xl"
+    <motion.button
+      onClick={openBooking}
+      className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-lavender-deep text-white font-semibold text-[16px] shadow-[0_8px_30px_rgba(96,108,56,0.35)] hover:bg-lavender-mid hover:shadow-[0_12px_40px_rgba(188,108,37,0.45)] transition-all duration-200 mt-6 mb-2"
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.97 }}
+      aria-label="Book a free 15-minute call with Harry"
     >
-      <p className="text-secondary text-[15px] italic leading-relaxed">
-        "Working with Harry was seamless. He understood our brand from the first call and delivered a website that finally matched our quality."
-      </p>
-      <cite className="mt-3 block text-lavender-deep text-[13px] font-semibold not-italic">
-        — Priya Sharma, Founder · Velour Studio
-      </cite>
-    </motion.blockquote>
+      Book a Free 15-Min Call →
+    </motion.button>
 
-    <div className="mt-12 flex flex-wrap gap-6">
-      {contactItems.map((item, index) => (
-        <ContactCard key={item.label} index={index} {...item} />
-      ))}
-    </div>
+    <p className="mt-8 text-secondary text-[13px]">
+      Prefer a different way?{" "}
+      <a href="mailto:harrygillfdk50@gmail.com" className="text-lavender-deep hover:underline">
+        harrygillfdk50@gmail.com
+      </a>
+      {" · "}
+      <a href="tel:+14372501904" className="text-lavender-deep hover:underline">
+        +1 437 250 1904
+      </a>
+    </p>
   </div>
-);
+  );
+};
 
 export default SectionWrapper(Contact, "contact");

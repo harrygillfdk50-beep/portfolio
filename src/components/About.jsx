@@ -9,7 +9,7 @@ import { fadeIn, textVariant, cardGridContainer, cardReveal } from "../utils/mot
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: 3, suffix: "+", label: "Years Experience" },
+  { value: 100, suffix: "%", label: "Client Satisfaction" },
   { value: 20, suffix: "+", label: "Projects Delivered" },
   { value: 15, suffix: "+", label: "Happy Clients" },
 ];
@@ -25,7 +25,7 @@ const StatCounter = ({ value, suffix, label }) => {
       val: value,
       duration: 2,
       ease: "power2.out",
-      scrollTrigger: { trigger: el, start: "top 85%" },
+      scrollTrigger: { trigger: el, start: "top 85%", once: true },
       onUpdate: function () {
         if (el) el.textContent = Math.round(obj.val) + suffix;
       },
@@ -39,12 +39,12 @@ const StatCounter = ({ value, suffix, label }) => {
   return (
     <motion.div
       variants={cardReveal}
-      className="flex flex-col items-center p-8 bg-cream-card rounded-2xl shadow-card border border-lavender/10 min-w-[130px]"
+      className="flex flex-col items-center p-6 sm:p-8 bg-cream-card rounded-2xl shadow-card border border-lavender/10 border-l-4 border-l-accent/70 min-w-0 w-full sm:w-auto sm:min-w-[130px]"
     >
-      <span ref={numRef} className="text-[42px] font-black text-lavender-deep leading-none" style={{ fontVariantNumeric: "tabular-nums" }}>
+      <span ref={numRef} className="font-display text-[46px] text-accent leading-none" style={{ fontVariantNumeric: "tabular-nums" }}>
         0{suffix}
       </span>
-      <span className="text-secondary text-[13px] mt-3 text-center font-medium">{label}</span>
+      <span className="text-secondary text-[13px] mt-4 text-center font-medium">{label}</span>
     </motion.div>
   );
 };
@@ -62,25 +62,39 @@ const About = () => {
         </span>
         <motion.div variants={textVariant()} className="relative z-10">
           <p className={styles.sectionSubText}>Who I Am</p>
-          <h2 className={styles.sectionHeadText}>About Me.</h2>
+          <h2 className={styles.sectionHeadText}>Why Clients Come Back.</h2>
         </motion.div>
       </div>
 
       <motion.p
         variants={fadeIn("", "", 0.1, 1)}
-        className="mt-6 text-secondary text-[17px] sm:text-[18px] max-w-3xl leading-[1.75]"
+        className="mt-6 text-secondary text-[16px] sm:text-[17px] max-w-2xl leading-[1.75]"
       >
-        I'm a Canadian designer and front-end developer who's spent the last three years working with restaurants, startups, and independent brands to make their websites work as hard as they do. I care about the details most clients never see — the micro-interaction that builds trust, the hierarchy that makes a decision feel easy, the load time that keeps someone on the page. Most of my clients come back — not because I'm the cheapest option, but because they stopped having to think about their website.
+        I'm a Canadian designer and front-end developer who's spent the last three years working with restaurants, startups, and independent brands to make their websites work as hard as they do. I care about the details most clients never notice — the tiny things that keep a visitor on the page, build trust before anyone reads a word, and make booking or buying feel obvious. Most of my clients come back — not because I'm the cheapest option, but because they stopped having to think about their website.
       </motion.p>
 
       <motion.div
         variants={cardGridContainer(0.15, 0.2)}
-        className="mt-16 flex flex-wrap gap-8 sm:gap-10 justify-start"
+        className={`${styles.sectionBodyGap} flex flex-wrap gap-8 sm:gap-10 justify-start`}
       >
         {stats.map((stat) => (
           <StatCounter key={stat.label} {...stat} />
         ))}
       </motion.div>
+
+      <div className="mt-10">
+        <p className="text-[13px] font-semibold text-lavender-mid uppercase tracking-[0.12em] mb-4">What I Build</p>
+        <div className="flex flex-wrap gap-2">
+          {["Websites", "Online Stores", "Branding", "Mobile-Friendly", "Fast Load Times", "Landing Pages"].map((tool) => (
+            <span
+              key={tool}
+              className="px-3 py-1.5 rounded-full text-[13px] font-medium bg-lavender-pale/40 text-lavender-deep border border-lavender-pale/60"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+      </div>
     </>
   );
 };

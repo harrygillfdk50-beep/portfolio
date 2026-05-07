@@ -8,34 +8,49 @@ import {
   Footer,
   Hero,
   Navbar,
-  Tech,
+  Skills,
   Testimonials,
   Works,
 } from "./components";
+import AmbientOrbs from "./components/AmbientOrbs";
+import BackgroundPaths from "./components/BackgroundPaths";
+import BookingModal from "./components/BookingModal";
+import { BookingProvider } from "./context/BookingContext";
 
 const App = () => (
   <BrowserRouter>
-    <CustomCursor />
-    <div className="relative z-0 bg-primary min-h-screen">
-      <div className="relative">
-        <Navbar />
-        <Hero />
+    <BookingProvider>
+      <CustomCursor />
+      <BookingModal />
+      <div className="relative z-0 bg-primary min-h-screen">
+        <BackgroundPaths />
+        <AmbientOrbs />
+        <main className="relative">
+          <div className="relative">
+            <Navbar />
+            <Hero />
+          </div>
+          <div className="section-alt">
+            <About />
+          </div>
+          <Experience />
+          <div className="section-alt">
+            <Works />
+          </div>
+          <Feedbacks />
+          <div className="section-alt">
+            <Skills />
+          </div>
+          <div className="section-alt">
+            <Testimonials />
+          </div>
+          <div className="relative z-0">
+            <Contact />
+          </div>
+          <Footer />
+        </main>
       </div>
-      <About />
-      <div className="section-alt">
-        <Works />
-      </div>
-      <Feedbacks />
-      <div className="section-alt">
-        <Testimonials />
-      </div>
-      <Tech />
-      <Experience />
-      <div className="relative z-0">
-        <Contact />
-      </div>
-      <Footer />
-    </div>
+    </BookingProvider>
   </BrowserRouter>
 );
 

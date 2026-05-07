@@ -8,14 +8,37 @@ import {
   css,
   reactjs,
   figma,
+  tailwind,
+  typescript,
+  git,
+  shopify,
 } from "../assets";
 
 export const navLinks = [
-  { id: "about", title: "About" },
-  { id: "work", title: "Work" },
-  { id: "projects", title: "Projects" },
-  { id: "contact", title: "Contact" },
+  { id: "about",   title: "About"  },
+  { id: "work",    title: "Work"   },
+  { id: "skills",  title: "Skills" },
+  { id: "contact", title: "Contact"},
 ];
+
+export const skills = {
+  design: [
+    { name: "Figma",          icon: figma    },
+    { name: "UI Design",      icon: web      },
+    { name: "UX Design",      icon: mobile   },
+    { name: "Brand Identity", icon: creator  },
+  ],
+  development: [
+    { name: "React",        icon: reactjs    },
+    { name: "JavaScript",   icon: javascript },
+    { name: "HTML5",        icon: html       },
+    { name: "CSS3",         icon: css        },
+    { name: "Tailwind CSS", icon: tailwind   },
+    { name: "TypeScript",   icon: typescript },
+    { name: "Git",          icon: git        },
+    { name: "Shopify",      icon: shopify    },
+  ],
+};
 
 const services = [
   {
@@ -26,12 +49,12 @@ const services = [
   {
     title: "UX Design",
     icon: mobile,
-    description: "Every click, scroll, and decision point designed so users get where they're going without friction.",
+    description: "Your visitors always know what to do next — whether that's booking a table, making a purchase, or getting in touch.",
   },
   {
     title: "Web Development",
     icon: backend,
-    description: "React and Tailwind builds that load fast, scale cleanly, and hand off without headaches.",
+    description: "A website that loads in a blink, works perfectly on every phone, and never needs babysitting.",
   },
   {
     title: "Brand & Visual Design",
@@ -40,40 +63,24 @@ const services = [
   },
 ];
 
-const technologies = [
-  { name: "Figma", icon: figma, category: "design" },
-  { name: "Adobe XD", icon: figma, category: "design" },
-  { name: "Photoshop", icon: figma, category: "design" },
-  { name: "Framer", icon: figma, category: "design" },
-  { name: "Sketch", icon: figma, category: "design" },
-  { name: "HTML & CSS", icon: html, category: "dev" },
-  { name: "JavaScript", icon: javascript, category: "dev" },
-  { name: "React", icon: reactjs, category: "dev" },
-  { name: "Tailwind CSS", icon: css, category: "dev" },
-  { name: "Responsive Design", icon: mobile, category: "dev" },
-  { name: "Prototyping", icon: creator, category: "dev" },
-  { name: "User Research", icon: backend, category: "dev" },
-];
 
 const experiences = [
   {
     title: "Freelance UI/UX Designer",
     company_name: "Self-Employed · Canada",
     icon: creator,
-    iconBg: "#E8E0F5",
     date: "2022 – Present",
     points: [
-      "Delivered end-to-end website projects for restaurants, independent retailers, and early-stage startups — from first brief to live site.",
-      "Managing end-to-end projects from initial brief to final handoff — including wireframes, prototypes, and responsive builds.",
-      "Building ongoing client relationships with clear communication and timely delivery.",
-      "Specialising in making complex ideas simple and beautiful for non-technical clients.",
+      "Helped restaurants, shops, and small businesses get websites that look the part and actually bring in customers.",
+      "Managed every step — from the first conversation to the day the site goes live — so clients never had to chase anyone down.",
+      "Built sites people can use on their phone, because that's where most customers are.",
+      "Clients across hospitality, retail, and professional services — including the three projects below.",
     ],
   },
   {
     title: "Junior Front-End Designer",
     company_name: "Pixel & Co. Agency",
     icon: web,
-    iconBg: "#E8E0F5",
     date: "2021 – 2022",
     points: [
       "Built and styled web interfaces from Figma designs for a range of agency clients.",
@@ -86,12 +93,11 @@ const experiences = [
     title: "Design Intern",
     company_name: "Bright Studio",
     icon: mobile,
-    iconBg: "#E8E0F5",
     date: "2020 – 2021",
     points: [
       "Assisted senior designers with UI mockups, wireframes, and brand asset production.",
       "Worked on visual identity and web design projects for local businesses and non-profits.",
-      "Developed a strong foundation in design principles, typography, and colour theory.",
+      "Sharpened core skills in typography, colour theory, and visual hierarchy — the fundamentals that still show up in every project.",
       "Delivered polished assets on tight deadlines in a fast-paced studio environment.",
     ],
   },
@@ -99,25 +105,28 @@ const experiences = [
 
 const testimonials = [
   {
-    testimonial: "Harry completely transformed our restaurant's online presence. Bookings went up and customers keep complimenting how easy the website is to use.",
+    context: "The problem: an outdated site and almost no online bookings",
+    testimonial: "Our old website looked like it was built in 2009 — I was embarrassed to hand out our business card. Harry transformed our online presence completely. Online reservations roughly doubled in the first month, and customers keep complimenting how easy the site is to use.",
     name: "Marco Rossi",
     designation: "Owner",
     company: "Saffron Kitchen",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%237260A0'/%3E%3Ctext x='50' y='56' font-family='Arial' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EMR%3C/text%3E%3C/svg%3E",
   },
   {
-    testimonial: "Working with Harry was seamless from start to finish. He listened to what we needed and delivered something even better than we imagined.",
+    context: "The problem: a broken store losing sales every day",
+    testimonial: "I was nervous about redesigning the whole store — our old site was losing us sales and I didn't know where to start. Harry made it simple. We went from concept to a full working site in three weeks, and our checkout abandonment dropped noticeably in the first month.",
     name: "Priya Sharma",
     designation: "Founder",
     company: "Velour Studio",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23A090CC'/%3E%3Ctext x='50' y='56' font-family='Arial' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EPS%3C/text%3E%3C/svg%3E",
   },
   {
-    testimonial: "Harry asked the right questions from day one. The page he built communicated our product in under ten seconds — which was exactly the brief.",
+    context: "The problem: a product no one could explain after reading the page",
+    testimonial: "Our previous page confused everyone we showed it to — we had a good product but couldn't explain it. Harry asked the right questions from day one. The page he built explains what we do in under ten seconds — strangers get it immediately, which was the whole point.",
     name: "James Liu",
     designation: "CEO",
     company: "Groundwork",
-    image: "https://randomuser.me/api/portraits/men/55.jpg",
+    image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%239B8EC4'/%3E%3Ctext x='50' y='56' font-family='Arial' font-size='32' font-weight='bold' fill='white' text-anchor='middle'%3EJL%3C/text%3E%3C/svg%3E",
   },
 ];
 
@@ -125,39 +134,42 @@ const projects = [
   {
     name: "Saffron Kitchen",
     description:
-      "A warm, elegant website for a fine-dining restaurant — designed to showcase the menu, atmosphere, and reservation experience in a way that makes guests excited before they even arrive.",
+      "Saffron Kitchen needed a website that matched their restaurant — refined, easy to navigate, and built to turn first-time visitors into reservations. The owner had been burned by a previous agency that delivered something generic; we rebuilt from scratch around their actual menu. Online reservations roughly doubled in the first month.",
     tags: [
       { name: "UI Design", color: "lavender-text-gradient" },
-      { name: "Web Design", color: "blue-text-gradient" },
-      { name: "Figma", color: "pink-text-gradient" },
+      { name: "Web Design", color: "sage-text-gradient" },
+      { name: "Figma", color: "sage-gradient-mid" },
     ],
     gradient: "linear-gradient(135deg, #c8a882 0%, #8B5E3C 100%)",
-    source_code_link: "https://github.com/",
+    source_code_link: null,
+    overlayLabel: "Case Study on Request →",
   },
   {
     name: "Velour Studio",
     description:
-      "A minimal, fashion-forward online store for an independent clothing brand — focused on clean product presentation, smooth browsing, and a checkout experience that feels effortless.",
+      "An independent clothing brand needed an online store that felt as considered as their clothes. An early version was too sparse — the founder pushed back, and she was right. We added warmth without adding clutter, and cart completions increased noticeably within weeks of launch.",
     tags: [
       { name: "E-commerce", color: "lavender-text-gradient" },
-      { name: "UX Design", color: "blue-text-gradient" },
-      { name: "Branding", color: "pink-text-gradient" },
+      { name: "UX Design", color: "sage-text-gradient" },
+      { name: "Branding", color: "sage-gradient-mid" },
     ],
     gradient: "linear-gradient(135deg, #d4b8c7 0%, #8B5572 100%)",
-    source_code_link: "https://github.com/",
+    source_code_link: null,
+    overlayLabel: "Ask About This →",
   },
   {
     name: "Groundwork",
     description:
-      "A bold, conversion-focused landing page for an early-stage startup — designed to communicate their product's value in seconds and turn visitors into sign-ups.",
+      "A startup needed one page that explained their product to a stranger in under ten seconds. The first draft tried to say everything — we cut it by half, then half again. Trial signups increased week-over-week from launch, and the founder stopped apologising when he shared the link.",
     tags: [
       { name: "Landing Page", color: "lavender-text-gradient" },
-      { name: "UX Design", color: "blue-text-gradient" },
-      { name: "Startup", color: "pink-text-gradient" },
+      { name: "UX Design", color: "sage-text-gradient" },
+      { name: "Startup", color: "sage-gradient-mid" },
     ],
     gradient: "linear-gradient(135deg, #9B8EC4 0%, #6B5B95 100%)",
-    source_code_link: "https://github.com/",
+    source_code_link: null,
+    overlayLabel: "Ask About This →",
   },
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+export { services, experiences, testimonials, projects };

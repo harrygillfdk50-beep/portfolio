@@ -6,12 +6,15 @@ const styles = {
   heroHeadText:
     "font-black text-text-dark mt-2 leading-[1.08] tracking-[-0.025em]",
   heroSubText:
-    "text-lavender-deep font-medium lg:text-[28px] sm:text-[22px] xs:text-[18px] text-[15px] leading-[1.4]",
+    "text-lavender-deep font-medium lg:text-[28px] sm:text-[22px] phone:text-[20px] xs:text-[18px] text-[15px] leading-[1.4]",
 
   sectionHeadText:
-    "text-text-dark font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] leading-[1.1] tracking-[-0.02em]",
+    "font-display italic text-text-dark md:text-[62px] sm:text-[52px] xs:text-[42px] text-[32px] leading-[1.08] tracking-[-0.01em]",
   sectionSubText:
-    "sm:text-[18px] text-[14px] text-lavender uppercase tracking-[0.12em] font-semibold",
+    "sm:text-[13px] xs:text-[12px] text-[11px] text-lavender-mid uppercase tracking-[0.18em] font-semibold mb-3 border-l-2 border-accent/60 pl-3",
+
+  sectionBodyGap: "mt-12",
+  sectionCategoryLabel: "text-[14px] sm:text-[18px] font-semibold text-lavender-mid uppercase tracking-[0.12em]",
 };
 
 export { styles };
