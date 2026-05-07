@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -18,10 +18,36 @@ const CloseIcon = () => (
   </svg>
 );
 
+const Tab = ({ children, navId, setPosition, setActive }) => {
+  const ref = useRef(null);
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref.current) return;
+        const { width } = ref.current.getBoundingClientRect();
+        setPosition({ width, opacity: 1, left: ref.current.offsetLeft });
+      }}
+      onClick={() => setActive(children)}
+      className="relative z-10 block cursor-pointer px-4 py-2 text-[13px] font-medium uppercase tracking-wide text-white mix-blend-difference"
+    >
+      <a href={`#${navId}`}>{children}</a>
+    </li>
+  );
+};
+
+const SlidingCursor = ({ position }) => (
+  <motion.li
+    animate={position}
+    className="absolute z-0 top-1 h-[calc(100%-8px)] rounded-full bg-lavender-deep pointer-events-none"
+  />
+);
+
 const Navbar = () => {
   const [active, setActive]     = useState("");
   const [toggle, setToggle]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [position, setPosition] = useState({ left: 0, width: 0, opacity: 0 });
   const { open: openBooking }   = useBooking();
 
   useEffect(() => {
@@ -61,47 +87,36 @@ const Navbar = () => {
         scrolled ? "navbar-glass border-b border-lavender/10" : "bg-transparent"
       }`}
     >
-      <div className="w-full flex justify-center items-center max-w-7xl mx-auto">
+      <div className="w-full flex justify-center items-center max-w-7xl mx-auto gap-4">
 
-        {/* Centre — nav links + inline CTA */}
-        <ul className="list-none hidden sm:flex flex-row items-center gap-8">
+        {/* Desktop — sliding pill nav */}
+        <ul
+          className="relative hidden sm:flex w-fit rounded-full border-2 border-lavender-deep bg-primary/80 backdrop-blur-sm p-1 items-center list-none"
+          onMouseLeave={() => setPosition(pv => ({ ...pv, opacity: 0 }))}
+        >
           {navLinks.map((nav) => (
-            <li
+            <Tab
               key={nav.id}
-              onClick={() => setActive(nav.title)}
-              className="relative group cursor-pointer"
+              navId={nav.id}
+              setPosition={setPosition}
+              setActive={setActive}
             >
-              <a
-                href={`#${nav.id}`}
-                aria-current={active === nav.title ? "page" : undefined}
-                className={`text-[15px] font-medium transition-colors duration-200 ${
-                  active === nav.title
-                    ? "text-lavender-deep"
-                    : "text-secondary hover:text-lavender-deep"
-                }`}
-              >
-                {nav.title}
-              </a>
-              <span
-                className={`absolute -bottom-1 left-0 h-[2px] bg-lavender-deep rounded-full transition-all duration-300 ${
-                  active === nav.title ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
-            </li>
+              {nav.title}
+            </Tab>
           ))}
-          {/* Book a Call inline, right after Contact */}
-          <li>
-            <button
-              onClick={openBooking}
-              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lavender-deep text-white text-[14px] font-semibold shadow-[0_4px_16px_rgba(96,108,56,0.28)] hover:bg-lavender-mid hover:shadow-[0_6px_22px_rgba(96,108,56,0.38)] hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0 transition-all duration-200"
-            >
-              Book a Call →
-            </button>
-          </li>
+          <SlidingCursor position={position} />
         </ul>
 
-        {/* Mobile — hamburger + dropdown */}
-        <div className="sm:hidden flex w-full justify-end items-center">
+        {/* Book a Call — desktop */}
+        <button
+          onClick={openBooking}
+          className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lavender-deep text-white text-[13px] font-semibold tracking-wide shadow-[0_4px_16px_rgba(96,108,56,0.28)] hover:bg-lavender-mid hover:shadow-[0_6px_22px_rgba(96,108,56,0.38)] hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0 transition-all duration-200"
+        >
+          Book a Call →
+        </button>
+
+        {/* Mobile — hamburger on LEFT */}
+        <div className="sm:hidden flex w-full justify-start items-center">
           <button
             onClick={() => setToggle(!toggle)}
             aria-label={toggle ? "Close menu" : "Open menu"}
@@ -119,7 +134,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0,  scale: 1    }}
                 exit={{    opacity: 0, y: -6,  scale: 0.97 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
-                className="absolute top-[68px] right-4 min-w-[190px] z-10 rounded-2xl overflow-hidden"
+                className="absolute top-[68px] left-4 min-w-[190px] z-10 rounded-2xl overflow-hidden"
                 style={{
                   background: "rgba(254,250,224,0.97)",
                   backdropFilter: "blur(16px)",
@@ -131,16 +146,16 @@ const Navbar = () => {
                   {navLinks.map((nav, i) => (
                     <motion.li
                       key={nav.id}
-                      initial={{ opacity: 0, x: 6 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{    opacity: 0, x: 6 }}
+                      initial={{ opacity: 0, x: -6 }}
+                      animate={{ opacity: 1, x: 0  }}
+                      exit={{    opacity: 0, x: -6  }}
                       transition={{ delay: i * 0.05 }}
                     >
                       <a
                         href={`#${nav.id}`}
                         onClick={() => { setToggle(false); setActive(nav.title); }}
                         aria-current={active === nav.title ? "page" : undefined}
-                        className={`flex items-center justify-end min-h-[44px] px-3 rounded-xl text-[15px] font-medium transition-all duration-150 ${
+                        className={`flex items-center justify-start min-h-[44px] px-3 rounded-xl text-[15px] font-medium transition-all duration-150 ${
                           active === nav.title
                             ? "text-lavender-deep bg-[rgba(96,108,56,0.08)]"
                             : "text-secondary hover:text-lavender-deep hover:bg-[rgba(96,108,56,0.05)]"
