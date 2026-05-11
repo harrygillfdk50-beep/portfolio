@@ -172,4 +172,46 @@ const projects = [
   },
 ];
 
-export { services, experiences, testimonials, projects };
+const workSamples = [
+  {
+    name: "Osteria XYZ",
+    category: "Italian Fine Dining · Sample",
+    description:
+      "A multi-page sample site for a fictional three-Michelin-star Italian restaurant. Editorial typography, candlelit motion, dish-by-dish handwritten reveals, working reservation flow. Built mobile-first; deployed with custom domain + SSL.",
+    image:
+      "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=1200&q=85&auto=format&fit=crop",
+    tags: [
+      { name: "Restaurant", color: "lavender-text-gradient" },
+      { name: "Editorial",  color: "sage-text-gradient" },
+      { name: "Animations", color: "sage-gradient-mid" },
+    ],
+    liveUrl: "https://demo.harrygill.dev",
+    status: "live",
+  },
+  {
+    name: "Sample Two",
+    category: "Coming Soon",
+    description:
+      "A second showcase piece — in progress. Will demonstrate a different industry, a different palette, and a different motion language. Stay tuned.",
+    image: null,
+    tags: [
+      { name: "In Progress", color: "lavender-text-gradient" },
+    ],
+    liveUrl: null,
+    status: "coming-soon",
+  },
+  {
+    name: "Sample Three",
+    category: "Coming Soon",
+    description:
+      "Third showcase piece — also in progress. Each sample is built end-to-end: design, copy, motion, deploy, custom domain.",
+    image: null,
+    tags: [
+      { name: "In Progress", color: "lavender-text-gradient" },
+    ],
+    liveUrl: null,
+    status: "coming-soon",
+  },
+];
+
+export { services, experiences, testimonials, projects, workSamples };

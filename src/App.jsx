@@ -11,6 +11,7 @@ import {
   Skills,
   Testimonials,
   Works,
+  WorkSamples,
 } from "./components";
 import AmbientOrbs from "./components/AmbientOrbs";
 import BackgroundPaths from "./components/BackgroundPaths";
@@ -34,6 +35,7 @@ const App = () => (
             <About />
           </div>
           <Experience />
+          <WorkSamples />
           <div className="section-alt">
             <Works />
           </div>
