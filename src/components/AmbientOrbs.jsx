@@ -1,9 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 const ORBS = [
-  { w: 520, h: 520, top: "8%",  left: "60%", color: "rgba(96,108,56,0.12)",  dur: 28, delay: 0    },
-  { w: 380, h: 380, top: "42%", left: "5%",  color: "rgba(188,108,37,0.09)", dur: 34, delay: -8   },
-  { w: 300, h: 300, top: "70%", left: "75%", color: "rgba(221,161,94,0.10)", dur: 22, delay: -14  },
+  { w: 520, h: 520, top: "8%",  left: "60%", color: "rgba(128,14,19,0.12)",  dur: 28, delay: 0    },
+  { w: 380, h: 380, top: "42%", left: "5%",  color: "rgba(173,40,49,0.09)", dur: 34, delay: -8   },
+  { w: 300, h: 300, top: "70%", left: "75%", color: "rgba(173,40,49,0.10)", dur: 22, delay: -14  },
 ];
 
 const AmbientOrbs = () => {

@@ -9,9 +9,9 @@ import { useBooking } from "../context/BookingContext";
 const initials = (name) => name.split(" ").map((n) => n[0]).join("");
 
 const AVATAR_COLORS = [
-  { bg: "bg-[#ede7c0]/80", text: "text-[#606c38]" },
-  { bg: "bg-[#f5efc8]/80", text: "text-[#bc6c25]" },
-  { bg: "bg-[#e2d9a8]/80", text: "text-[#283618]" },
+  { bg: "bg-[#38040e]/80", text: "text-[#800e13]" },
+  { bg: "bg-[#3d0a12]/80", text: "text-[#ad2831]" },
+  { bg: "bg-[#3d0a12]/80", text: "text-[#f5e7e8]" },
 ];
 
 const TestimonialCard = ({ index, testimonial, name, designation, company, context }) => {

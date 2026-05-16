@@ -35,7 +35,7 @@ const Contact = () => {
 
     <motion.button
       onClick={openBooking}
-      className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-lavender-deep text-white font-semibold text-[16px] shadow-[0_8px_30px_rgba(96,108,56,0.35)] hover:bg-lavender-mid hover:shadow-[0_12px_40px_rgba(188,108,37,0.45)] transition-all duration-200 mt-6 mb-2"
+      className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-lavender-deep text-white font-semibold text-[16px] shadow-[0_8px_30px_rgba(128,14,19,0.35)] hover:bg-lavender-mid hover:shadow-[0_12px_40px_rgba(173,40,49,0.45)] transition-all duration-200 mt-6 mb-2"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
       aria-label="Book a free 15-minute call with Harry"

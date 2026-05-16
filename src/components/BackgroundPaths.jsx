@@ -67,8 +67,8 @@ const BackgroundPaths = () => {
       className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{ zIndex: 0 }}
     >
-      <PathLayer position={1}  stroke="#dda15e" baseOpacity={0.18} opacityStep={0.016} />
-      <PathLayer position={-1} stroke="#dda15e" baseOpacity={0.12} opacityStep={0.013} />
+      <PathLayer position={1}  stroke="#ad2831" baseOpacity={0.18} opacityStep={0.016} />
+      <PathLayer position={-1} stroke="#ad2831" baseOpacity={0.12} opacityStep={0.013} />
     </div>
   );
 };

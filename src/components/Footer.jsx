@@ -40,7 +40,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08 }}
           onClick={openBooking}
-          className="px-6 py-2.5 rounded-full bg-lavender-deep text-white font-semibold text-[14px] hover:bg-lavender-mid transition-all duration-200 shadow-[0_4px_16px_rgba(96,108,56,0.28)]"
+          className="px-6 py-2.5 rounded-full bg-lavender-deep text-white font-semibold text-[14px] hover:bg-lavender-mid transition-all duration-200 shadow-[0_4px_16px_rgba(128,14,19,0.28)]"
         >
           Book a Free Call →
         </motion.button>

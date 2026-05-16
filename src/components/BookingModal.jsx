@@ -26,9 +26,9 @@ const validate = (data) => {
 
 const InputField = ({ id, label, type, required, placeholder, error, disabled }) => (
   <div>
-    <label htmlFor={id} className="block text-[13px] font-semibold mb-1.5" style={{ color: "#283618" }}>
+    <label htmlFor={id} className="block text-[13px] font-semibold mb-1.5" style={{ color: "#f5e7e8" }}>
       {label}{" "}
-      {!required && <span style={{ color: "#7a7060", fontWeight: 400 }}>(optional)</span>}
+      {!required && <span style={{ color: "#c4a8aa", fontWeight: 400 }}>(optional)</span>}
     </label>
     <input
       id={id}
@@ -39,12 +39,12 @@ const InputField = ({ id, label, type, required, placeholder, error, disabled })
       disabled={disabled}
       className="w-full px-4 py-3 rounded-xl text-[15px] outline-none transition-all disabled:opacity-50"
       style={{
-        background: "#f5efc8",
-        border: `1.5px solid ${error ? "#ef4444" : "rgba(221,161,94,0.45)"}`,
-        color: "#283618",
+        background: "#3d0a12",
+        border: `1.5px solid ${error ? "#ef4444" : "rgba(173,40,49,0.45)"}`,
+        color: "#f5e7e8",
       }}
-      onFocus={e => { e.target.style.borderColor = "#606c38"; e.target.style.boxShadow = "0 0 0 3px rgba(96,108,56,0.15)"; }}
-      onBlur={e  => { e.target.style.borderColor = error ? "#ef4444" : "rgba(221,161,94,0.45)"; e.target.style.boxShadow = "none"; }}
+      onFocus={e => { e.target.style.borderColor = "#800e13"; e.target.style.boxShadow = "0 0 0 3px rgba(128,14,19,0.15)"; }}
+      onBlur={e  => { e.target.style.borderColor = error ? "#ef4444" : "rgba(173,40,49,0.45)"; e.target.style.boxShadow = "none"; }}
     />
     {error && <p className="text-red-500 text-[12px] mt-1">{error}</p>}
   </div>
@@ -92,7 +92,7 @@ const BookingModal = () => {
             transition={{ duration: 0.22 }}
             onClick={close}
             className="fixed inset-0 z-[200]"
-            style={{ background: "rgba(40,54,24,0.45)", backdropFilter: "blur(6px)" }}
+            style={{ background: "rgba(0,0,0,0.45)", backdropFilter: "blur(6px)" }}
           />
 
           <motion.div
@@ -109,8 +109,8 @@ const BookingModal = () => {
             <div
               className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto rounded-t-3xl xs:rounded-3xl"
               style={{
-                background: "#fefae0",
-                boxShadow: "0 32px 80px rgba(40,54,24,0.28), 0 0 0 1px rgba(96,108,56,0.12)",
+                background: "#250902",
+                boxShadow: "0 32px 80px rgba(0,0,0,0.28), 0 0 0 1px rgba(128,14,19,0.12)",
               }}
             >
               {/* Close */}
@@ -118,9 +118,9 @@ const BookingModal = () => {
                 onClick={close}
                 aria-label="Close"
                 className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-[20px] leading-none transition-colors z-10"
-                style={{ background: "rgba(96,108,56,0.1)", color: "#283618" }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(96,108,56,0.2)"}
-                onMouseLeave={e => e.currentTarget.style.background = "rgba(96,108,56,0.1)"}
+                style={{ background: "rgba(128,14,19,0.1)", color: "#f5e7e8" }}
+                onMouseEnter={e => e.currentTarget.style.background = "rgba(128,14,19,0.2)"}
+                onMouseLeave={e => e.currentTarget.style.background = "rgba(128,14,19,0.1)"}
               >
                 ×
               </button>
@@ -137,20 +137,20 @@ const BookingModal = () => {
                       animate={{ scale: 1 }}
                       transition={{ type: "spring", stiffness: 260, damping: 18, delay: 0.1 }}
                       className="w-16 h-16 rounded-full flex items-center justify-center mb-5"
-                      style={{ background: "rgba(96,108,56,0.15)" }}
+                      style={{ background: "rgba(128,14,19,0.15)" }}
                     >
-                      <span style={{ color: "#606c38", fontSize: "28px" }}>✓</span>
+                      <span style={{ color: "#800e13", fontSize: "28px" }}>✓</span>
                     </motion.div>
-                    <h3 className="font-bold text-[22px] mb-2" style={{ color: "#283618" }}>Message sent!</h3>
-                    <p className="text-[15px] leading-relaxed max-w-xs" style={{ color: "#7a7060" }}>
+                    <h3 className="font-bold text-[22px] mb-2" style={{ color: "#f5e7e8" }}>Message sent!</h3>
+                    <p className="text-[15px] leading-relaxed max-w-xs" style={{ color: "#c4a8aa" }}>
                       I'll be in touch within 24 hours. Check your spam folder just in case.
                     </p>
                     <button
                       onClick={close}
                       className="mt-7 px-8 py-3 rounded-full font-semibold text-[15px] text-white transition-colors"
-                      style={{ background: "#606c38" }}
-                      onMouseEnter={e => e.currentTarget.style.background = "#283618"}
-                      onMouseLeave={e => e.currentTarget.style.background = "#606c38"}
+                      style={{ background: "#800e13" }}
+                      onMouseEnter={e => e.currentTarget.style.background = "#640d14"}
+                      onMouseLeave={e => e.currentTarget.style.background = "#800e13"}
                     >
                       Done
                     </button>
@@ -160,18 +160,18 @@ const BookingModal = () => {
                     <div className="mb-7">
                       <p
                         className="text-[11px] font-semibold uppercase tracking-[0.18em] mb-2 border-l-2 pl-3"
-                        style={{ color: "#bc6c25", borderColor: "#bc6c25" }}
+                        style={{ color: "#ad2831", borderColor: "#ad2831" }}
                       >
                         Free · No commitment
                       </p>
                       <h2
                         id="modal-title"
                         className="font-bold text-[26px] sm:text-[30px] leading-tight"
-                        style={{ color: "#283618" }}
+                        style={{ color: "#f5e7e8" }}
                       >
                         Let's talk about your project.
                       </h2>
-                      <p className="text-[14px] mt-2 leading-relaxed" style={{ color: "#7a7060" }}>
+                      <p className="text-[14px] mt-2 leading-relaxed" style={{ color: "#c4a8aa" }}>
                         Fill this in and I'll reply within 24 hours to schedule our free 15-minute call.
                       </p>
                     </div>
@@ -195,7 +195,7 @@ const BookingModal = () => {
                         <label
                           htmlFor="message"
                           className="block text-[13px] font-semibold mb-1.5"
-                          style={{ color: "#283618" }}
+                          style={{ color: "#f5e7e8" }}
                         >
                           Reason for Contact
                         </label>
@@ -208,12 +208,12 @@ const BookingModal = () => {
                           placeholder="Describe what you need — new website, redesign, landing page, etc."
                           className="w-full px-4 py-3 rounded-xl text-[15px] outline-none resize-none transition-all disabled:opacity-50"
                           style={{
-                            background: "#f5efc8",
-                            border: `1.5px solid ${errors.message ? "#ef4444" : "rgba(221,161,94,0.45)"}`,
-                            color: "#283618",
+                            background: "#3d0a12",
+                            border: `1.5px solid ${errors.message ? "#ef4444" : "rgba(173,40,49,0.45)"}`,
+                            color: "#f5e7e8",
                           }}
-                          onFocus={e => { e.target.style.borderColor = "#606c38"; e.target.style.boxShadow = "0 0 0 3px rgba(96,108,56,0.15)"; }}
-                          onBlur={e  => { e.target.style.borderColor = errors.message ? "#ef4444" : "rgba(221,161,94,0.45)"; e.target.style.boxShadow = "none"; }}
+                          onFocus={e => { e.target.style.borderColor = "#800e13"; e.target.style.boxShadow = "0 0 0 3px rgba(128,14,19,0.15)"; }}
+                          onBlur={e  => { e.target.style.borderColor = errors.message ? "#ef4444" : "rgba(173,40,49,0.45)"; e.target.style.boxShadow = "none"; }}
                         />
                         {errors.message && <p className="text-red-500 text-[12px] mt-1">{errors.message}</p>}
                       </div>
@@ -236,11 +236,11 @@ const BookingModal = () => {
                         whileTap={{ scale: 0.97 }}
                         className="mt-1 w-full py-4 rounded-2xl font-semibold text-[16px] text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                         style={{
-                          background: "#606c38",
-                          boxShadow: "0 8px 30px rgba(96,108,56,0.35)",
+                          background: "#800e13",
+                          boxShadow: "0 8px 30px rgba(128,14,19,0.35)",
                         }}
-                        onMouseEnter={e => { if (status !== "sending") e.currentTarget.style.background = "#283618"; }}
-                        onMouseLeave={e => { e.currentTarget.style.background = "#606c38"; }}
+                        onMouseEnter={e => { if (status !== "sending") e.currentTarget.style.background = "#640d14"; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = "#800e13"; }}
                       >
                         {status === "sending" ? (
                           <span className="flex items-center justify-center gap-2">
@@ -253,13 +253,13 @@ const BookingModal = () => {
                         ) : "Send Message →"}
                       </motion.button>
 
-                      <p className="text-center text-[12px]" style={{ color: "#7a7060" }}>
+                      <p className="text-center text-[12px]" style={{ color: "#c4a8aa" }}>
                         Prefer email?{" "}
-                        <a href="mailto:harrygillfdk50@gmail.com" className="hover:underline" style={{ color: "#606c38" }}>
+                        <a href="mailto:harrygillfdk50@gmail.com" className="hover:underline" style={{ color: "#800e13" }}>
                           harrygillfdk50@gmail.com
                         </a>
                         {" · "}
-                        <a href="tel:+14372501904" className="hover:underline" style={{ color: "#606c38" }}>
+                        <a href="tel:+14372501904" className="hover:underline" style={{ color: "#800e13" }}>
                           +1 437 250 1904
                         </a>
                       </p>

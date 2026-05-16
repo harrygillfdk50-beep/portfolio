@@ -51,7 +51,7 @@ const TimelineSpine = ({ containerRef }) => {
       <path
         ref={pathRef}
         d="M 2 0 L 2 10000"
-        stroke="#606c38"
+        stroke="#800e13"
         strokeWidth="3"
         strokeLinecap="round"
         fill="none"
@@ -62,10 +62,10 @@ const TimelineSpine = ({ containerRef }) => {
 
 const CARD_STYLE = {
   background: "var(--color-cream-card)",
-  color: "var(--color-text-dark, #283618)",
+  color: "var(--color-text-dark, #f5e7e8)",
   borderRadius: "16px",
-  boxShadow: "0 4px 20px rgba(96,108,56,0.15)",
-  border: "1px solid rgba(96,108,56,0.18)",
+  boxShadow: "0 4px 20px rgba(128,14,19,0.15)",
+  border: "1px solid rgba(128,14,19,0.18)",
 };
 const ARROW_STYLE = { borderRight: "7px solid var(--color-cream-card)" };
 const ICON_STYLE = { background: "var(--color-lavender-light)", border: "3px solid var(--color-lavender-mid)" };

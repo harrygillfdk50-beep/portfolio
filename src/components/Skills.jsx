@@ -9,12 +9,12 @@ const SkillPill = ({ name, icon, index, delay }) => (
     variants={fadeIn("up", "spring", delay + index * 0.07, 0.5)}
     className="flex items-center gap-2.5 px-4 py-2.5 rounded-full border transition-all duration-200 group cursor-default"
     style={{
-      background: "rgba(96,108,56,0.06)",
-      border: "1.5px solid rgba(96,108,56,0.18)",
+      background: "rgba(128,14,19,0.06)",
+      border: "1.5px solid rgba(128,14,19,0.18)",
     }}
     whileHover={{
-      background: "rgba(96,108,56,0.13)",
-      borderColor: "rgba(96,108,56,0.35)",
+      background: "rgba(128,14,19,0.13)",
+      borderColor: "rgba(128,14,19,0.35)",
       y: -2,
     }}
   >
@@ -64,7 +64,7 @@ const Skills = () => (
       </div>
 
       {/* Divider */}
-      <div className="w-full h-px" style={{ background: "rgba(96,108,56,0.12)" }} />
+      <div className="w-full h-px" style={{ background: "rgba(128,14,19,0.12)" }} />
 
       {/* Development */}
       <div>

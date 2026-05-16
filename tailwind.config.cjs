@@ -4,26 +4,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#fefae0",
-        secondary: "#7a7060",
-        tertiary: "#ede7bf",
-        lavender: "#dda15e",
-        "lavender-mid": "#283618",
-        "lavender-deep": "#606c38",
-        "lavender-light": "#d4cc9a",
-        "lavender-pale": "#e2d9a8",
-        "ink": "#283618",
-        "cream-section": "#ede7bf",
-        "cream-card": "#f5efc8",
-        "text-dark": "#283618",
-        "accent": "#bc6c25",
-        "black-100": "#ede7bf",
-        "black-200": "#e2d9a8",
-        "white-100": "#fefae0",
+        // Mahogany palette — full atmospheric swap (token NAMES kept for code stability).
+        // primary = page background (was cornsilk, now darkest mahogany).
+        primary: "#250902",          // rich-mahogany (page bg)
+        secondary: "#c4a8aa",        // muted rose (body text on dark)
+        tertiary: "#38040e",         // rich-mahogany-2 (section bg)
+        lavender: "#ad2831",         // brown-red (primary accent, was sunlit clay)
+        "lavender-mid": "#640d14",   // black-cherry (was forest green)
+        "lavender-deep": "#800e13",  // dark-wine (main interactive, was olive)
+        "lavender-light": "#5a2228", // muted wine (subtle borders)
+        "lavender-pale": "#3d0a12",  // very dark wine (subtle bg variants)
+        "ink": "#f5e7e8",            // soft cream — LIGHT text on dark
+        "cream-section": "#38040e",  // rich-mahogany-2 (alt section bg)
+        "cream-card": "#3d0a12",     // slightly lighter card bg
+        "text-dark": "#f5e7e8",      // LIGHT text (flipped from forest green)
+        "accent": "#ad2831",         // brown-red (was copper)
+        "black-100": "#38040e",
+        "black-200": "#3d0a12",
+        "white-100": "#250902",      // page bg (was cornsilk)
       },
       boxShadow: {
-        card: "0px 10px 40px -10px rgba(96, 108, 56, 0.25)",
-        lavender: "0px 0px 20px rgba(188, 108, 37, 0.35)",
+        card: "0px 10px 40px -10px rgba(0, 0, 0, 0.5)",
+        lavender: "0px 0px 24px rgba(173, 40, 49, 0.5)",
       },
       screens: {
         xs: "375px",

@@ -97,7 +97,7 @@ const SampleCard = ({ sample }) => {
               ? undefined
               : {
                   background:
-                    "linear-gradient(135deg, #d4cc9a 0%, #606c38 100%)",
+                    "linear-gradient(135deg, #5a2228 0%, #800e13 100%)",
                 }
           }
         >

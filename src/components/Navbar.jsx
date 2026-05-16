@@ -110,7 +110,7 @@ const Navbar = () => {
         {/* Book a Call — desktop */}
         <button
           onClick={openBooking}
-          className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lavender-deep text-white text-[13px] font-semibold tracking-wide shadow-[0_4px_16px_rgba(96,108,56,0.28)] hover:bg-lavender-mid hover:shadow-[0_6px_22px_rgba(96,108,56,0.38)] hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0 transition-all duration-200"
+          className="hidden sm:inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-lavender-deep text-white text-[13px] font-semibold tracking-wide shadow-[0_4px_16px_rgba(128,14,19,0.28)] hover:bg-lavender-mid hover:shadow-[0_6px_22px_rgba(128,14,19,0.38)] hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0 transition-all duration-200"
         >
           Book a Call →
         </button>
@@ -136,10 +136,10 @@ const Navbar = () => {
                 transition={{ duration: 0.18, ease: "easeOut" }}
                 className="absolute top-[68px] left-4 min-w-[190px] z-10 rounded-2xl overflow-hidden"
                 style={{
-                  background: "rgba(254,250,224,0.97)",
+                  background: "rgba(37,9,2,0.97)",
                   backdropFilter: "blur(16px)",
-                  border: "1px solid rgba(96,108,56,0.12)",
-                  boxShadow: "0 16px 40px rgba(40,54,24,0.16)",
+                  border: "1px solid rgba(128,14,19,0.12)",
+                  boxShadow: "0 16px 40px rgba(0,0,0,0.16)",
                 }}
               >
                 <ul className="list-none flex flex-col px-4 pt-4 pb-3 gap-1">
@@ -157,8 +157,8 @@ const Navbar = () => {
                         aria-current={active === nav.title ? "page" : undefined}
                         className={`flex items-center justify-start min-h-[44px] px-3 rounded-xl text-[15px] font-medium transition-all duration-150 ${
                           active === nav.title
-                            ? "text-lavender-deep bg-[rgba(96,108,56,0.08)]"
-                            : "text-secondary hover:text-lavender-deep hover:bg-[rgba(96,108,56,0.05)]"
+                            ? "text-lavender-deep bg-[rgba(128,14,19,0.08)]"
+                            : "text-secondary hover:text-lavender-deep hover:bg-[rgba(128,14,19,0.05)]"
                         }`}
                       >
                         {nav.title}
@@ -169,7 +169,7 @@ const Navbar = () => {
                 <div className="px-4 pb-4">
                   <button
                     onClick={() => { setToggle(false); openBooking(); }}
-                    className="w-full py-3 rounded-xl bg-lavender-deep text-white text-[14px] font-semibold hover:bg-lavender-mid transition-colors duration-200 shadow-[0_4px_14px_rgba(96,108,56,0.25)]"
+                    className="w-full py-3 rounded-xl bg-lavender-deep text-white text-[14px] font-semibold hover:bg-lavender-mid transition-colors duration-200 shadow-[0_4px_14px_rgba(128,14,19,0.25)]"
                   >
                     Book a Call →
                   </button>
