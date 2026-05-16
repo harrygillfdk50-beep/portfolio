@@ -42,24 +42,19 @@ export const skills = {
 
 const services = [
   {
+    title: "AI Automation",
+    icon: creator,
+    description: "AI systems that capture leads from your website, email, and WhatsApp — and reply within seconds. Your business stops losing customers to slow follow-ups, even at 2 AM.",
+  },
+  {
     title: "UI Design",
     icon: web,
     description: "Interfaces that look premium on day one — and hold up across every screen size.",
   },
   {
-    title: "UX Design",
-    icon: mobile,
-    description: "Your visitors always know what to do next — whether that's booking a table, making a purchase, or getting in touch.",
-  },
-  {
     title: "Web Development",
     icon: backend,
     description: "A website that loads in a blink, works perfectly on every phone, and never needs babysitting.",
-  },
-  {
-    title: "Brand & Visual Design",
-    icon: creator,
-    description: "Visual systems that travel — from your website to your social to your business card, without losing coherence.",
   },
 ];
 
