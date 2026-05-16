@@ -84,18 +84,6 @@ const experiences = [
       "Contributed to 12+ live client projects across retail, hospitality, and tech industries.",
     ],
   },
-  {
-    title: "Design Intern",
-    company_name: "Bright Studio",
-    icon: mobile,
-    date: "2020 – 2021",
-    points: [
-      "Assisted senior designers with UI mockups, wireframes, and brand asset production.",
-      "Worked on visual identity and web design projects for local businesses and non-profits.",
-      "Sharpened core skills in typography, colour theory, and visual hierarchy — the fundamentals that still show up in every project.",
-      "Delivered polished assets on tight deadlines in a fast-paced studio environment.",
-    ],
-  },
 ];
 
 const testimonials = [
