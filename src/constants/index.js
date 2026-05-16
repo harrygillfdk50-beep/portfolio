@@ -66,15 +66,15 @@ const services = [
 
 const experiences = [
   {
-    title: "Freelance UI/UX Designer",
+    title: "AI Automation Builder & UX Designer",
     company_name: "Self-Employed · Canada",
     icon: creator,
     date: "2022 – Present",
     points: [
-      "Helped restaurants, shops, and small businesses get websites that look the part and actually bring in customers.",
-      "Managed every step — from the first conversation to the day the site goes live — so clients never had to chase anyone down.",
-      "Built sites people can use on their phone, because that's where most customers are.",
-      "Clients across hospitality, retail, and professional services — including the three projects below.",
+      "Build AI automations for small businesses — lead-capture systems, customer follow-up flows, and tools that respond on every channel within seconds.",
+      "Design and build websites that look the part and actually bring in customers — restaurants, shops, independent brands.",
+      "Manage every step — from the first conversation to the day it goes live — so clients never have to chase anyone down.",
+      "Clients across hospitality, retail, and professional services — see the work below.",
     ],
   },
   {
@@ -179,10 +179,10 @@ const aiAutomations = [
     tagline: "AI-powered lead capture — built so businesses never lose a customer to a slow follow-up.",
     body:
       "Speed-Lead is an AI automation system that listens across every channel a business uses — website forms, Gmail enquiries, WhatsApp messages — and the moment a lead comes in, it does two things at once: sends a personalized follow-up back to the customer on the same channel they reached out from, and notifies the right salesperson with the full context. The customer feels heard within seconds. The salesperson never misses a hot lead.",
-    flow: [
-      { label: "Forms · Gmail · WhatsApp", role: "Lead arrives" },
-      { label: "Claude AI", role: "Parses + routes" },
-      { label: "Customer reply + Salesperson alert", role: "Within 30 seconds" },
+    howItWorks: [
+      "A lead comes in from a website form, an email, or a WhatsApp message.",
+      "AI reads it, figures out what the customer needs, and sends a personalized reply within seconds.",
+      "The right person on the team gets a notification with everything they need to follow up — phone, name, what they asked about, how urgent it is.",
     ],
     tags: ["n8n", "Claude AI", "Multi-channel"],
     status: "Beta · Now onboarding first clients",

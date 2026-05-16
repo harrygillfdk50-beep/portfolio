@@ -5,7 +5,7 @@ import { styles } from "../styles";
 import { useMagnetic } from "../hooks/useMagnetic";
 import { useBooking } from "../context/BookingContext";
 
-const CYCLING_WORDS = ["Websites That Fill Tables", "Stores That Sell While You Sleep", "Brands Built to Last", "Sites Built to Be Found"];
+const CYCLING_WORDS = ["AI Automations That Save Hours", "Lead Systems That Don't Sleep", "Websites That Fill Tables", "Stores That Sell While You Sleep"];
 
 const MagneticButton = ({ children, className }) => {
   const { x, y, onMouseMove, onMouseLeave } = useMagnetic({ pull: 0.30 });
@@ -219,7 +219,7 @@ const Hero = () => {
 
           {/* Tagline */}
           <p className="mt-4 text-secondary text-[15px] sm:text-[17px] max-w-[520px] leading-[1.65] text-center">
-            {"For restaurants, shops, and small businesses that deserve a website as good as their product.".split(" ").map((word, i) => (
+            {"Real, working AI automation for small businesses — plus the websites and brands that make them look the part.".split(" ").map((word, i) => (
               <motion.span
                 key={i}
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}

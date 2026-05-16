@@ -70,7 +70,7 @@ const About = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-6 text-secondary text-[16px] sm:text-[17px] max-w-2xl leading-[1.75]"
       >
-        I'm a Canadian designer and front-end developer who's spent the last three years working with restaurants, startups, and independent brands to make their websites work as hard as they do. I care about the details most clients never notice — the tiny things that keep a visitor on the page, build trust before anyone reads a word, and make booking or buying feel obvious. Most of my clients come back — not because I'm the cheapest option, but because they stopped having to think about their website.
+        I'm a Canadian designer, front-end developer, and AI automation builder. I build things that help businesses grow and cut costs at the same time — AI systems that handle lead capture and customer follow-up around the clock, and websites that turn first-time visitors into customers. I care about the details most clients never notice: the tiny things that build trust before anyone reads a word, and make booking or buying feel obvious. Most clients come back — not because I'm the cheapest, but because they stopped having to think about their website or their leads.
       </motion.p>
 
       <motion.div
@@ -85,7 +85,7 @@ const About = () => {
       <div className="mt-10">
         <p className="text-[13px] font-semibold text-lavender-mid uppercase tracking-[0.12em] mb-4">What I Build</p>
         <div className="flex flex-wrap gap-2">
-          {["Websites", "Online Stores", "Branding", "Mobile-Friendly", "Fast Load Times", "Landing Pages"].map((tool) => (
+          {["AI Automation", "Lead Systems", "Websites", "Online Stores", "Branding", "Mobile-Friendly", "Fast Load Times", "Landing Pages"].map((tool) => (
             <span
               key={tool}
               className="px-3 py-1.5 rounded-full text-[13px] font-medium bg-lavender-pale/40 text-lavender-deep border border-lavender-pale/60"

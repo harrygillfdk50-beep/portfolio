@@ -35,39 +35,18 @@ const AutomationCard = ({ automation }) => {
         {automation.body}
       </p>
 
-      {/* Flow visual */}
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-2 items-stretch">
-        {automation.flow.map((step, i) => (
-          <div key={i} className="relative flex flex-col">
-            <div className="flex-1 px-4 py-5 sm:px-5 sm:py-6 rounded-2xl bg-primary/40 border border-lavender-light/30 text-center">
-              <p className="text-text-dark font-semibold text-[14px] sm:text-[15px] leading-snug">
-                {step.label}
-              </p>
-              <p className="mt-1.5 text-secondary text-[11px] uppercase tracking-[0.16em]">
-                {step.role}
-              </p>
-            </div>
-            {/* Arrow between steps */}
-            {i < automation.flow.length - 1 && (
-              <div
-                aria-hidden="true"
-                className="absolute hidden sm:flex items-center justify-center top-1/2 -right-2 -translate-y-1/2 z-10 text-lavender text-[24px] font-bold"
-                style={{ transform: "translateX(50%) translateY(-50%)" }}
-              >
-                →
-              </div>
-            )}
-            {i < automation.flow.length - 1 && (
-              <div
-                aria-hidden="true"
-                className="sm:hidden flex items-center justify-center py-1 text-lavender text-[18px] font-bold"
-              >
-                ↓
-              </div>
-            )}
-          </div>
+      {/* How it works — simple sentences, no diagram */}
+      <p className="mt-10 text-text-dark text-[14px] uppercase tracking-[0.18em] font-semibold">How it works</p>
+      <ol className="mt-4 space-y-3 max-w-3xl">
+        {automation.howItWorks.map((line, i) => (
+          <li key={i} className="flex gap-4 text-secondary text-[15px] sm:text-[16px] leading-[1.75]">
+            <span className="text-lavender font-display italic text-[22px] leading-none flex-shrink-0 w-7">
+              {i + 1}.
+            </span>
+            <span>{line}</span>
+          </li>
         ))}
-      </div>
+      </ol>
 
       {/* Tech tags */}
       <div className="mt-8 flex flex-wrap gap-2">
@@ -81,21 +60,24 @@ const AutomationCard = ({ automation }) => {
         ))}
       </div>
 
-      {/* CTAs */}
-      <div className="mt-10 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+      {/* Want to know more — single inline line */}
+      <p className="mt-10 text-text-dark text-[15px] sm:text-[16px] leading-[1.75]">
+        Want to know more?{" "}
         <button
           onClick={openBooking}
-          className="px-7 py-3.5 rounded-full bg-lavender-deep text-white font-semibold text-[15px] hover:bg-lavender transition-all duration-300 btn-primary-shadow hover:-translate-y-0.5 active:translate-y-0.5 active:scale-[0.97]"
+          className="text-lavender font-semibold underline decoration-lavender/40 underline-offset-4 hover:decoration-lavender transition-colors"
         >
-          Book a 15-Minute Zoom Call →
-        </button>
+          Book a 15-minute call
+        </button>{" "}
+        or send an email to{" "}
         <a
           href={`mailto:${automation.email}?subject=Speed-Lead%20enquiry`}
-          className="px-7 py-3.5 rounded-full border-2 border-lavender text-lavender font-semibold text-[15px] hover:bg-lavender hover:text-white transition-all duration-300 text-center"
+          className="text-lavender font-semibold underline decoration-lavender/40 underline-offset-4 hover:decoration-lavender transition-colors"
         >
           {automation.email}
         </a>
-      </div>
+        .
+      </p>
     </motion.article>
   );
 };
