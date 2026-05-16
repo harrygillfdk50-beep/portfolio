@@ -172,6 +172,24 @@ const projects = [
   },
 ];
 
+const aiAutomations = [
+  {
+    name: "Speed-Lead",
+    eyebrow: "Automation · Built with AI",
+    tagline: "AI-powered lead capture — built so businesses never lose a customer to a slow follow-up.",
+    body:
+      "Speed-Lead is an AI automation system that listens across every channel a business uses — website forms, Gmail enquiries, WhatsApp messages — and the moment a lead comes in, it does two things at once: sends a personalized follow-up back to the customer on the same channel they reached out from, and notifies the right salesperson with the full context. The customer feels heard within seconds. The salesperson never misses a hot lead.",
+    flow: [
+      { label: "Forms · Gmail · WhatsApp", role: "Lead arrives" },
+      { label: "Claude AI", role: "Parses + routes" },
+      { label: "Customer reply + Salesperson alert", role: "Within 30 seconds" },
+    ],
+    tags: ["n8n", "Claude AI", "Multi-channel"],
+    status: "Beta · Now onboarding first clients",
+    email: "harry@harrygill.dev",
+  },
+];
+
 const workSamples = [
   {
     name: "Osteria XYZ",
@@ -214,4 +232,4 @@ const workSamples = [
   },
 ];
 
-export { services, experiences, testimonials, projects, workSamples };
+export { services, experiences, testimonials, projects, workSamples, aiAutomations };

@@ -1,6 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import {
   About,
+  AIAutomation,
   Contact,
   CustomCursor,
   Experience,
@@ -10,7 +11,6 @@ import {
   Navbar,
   Skills,
   Testimonials,
-  Works,
   WorkSamples,
 } from "./components";
 import AmbientOrbs from "./components/AmbientOrbs";
@@ -37,7 +37,7 @@ const App = () => (
           <Experience />
           <WorkSamples />
           <div className="section-alt">
-            <Works />
+            <AIAutomation />
           </div>
           <Feedbacks />
           <div className="section-alt">

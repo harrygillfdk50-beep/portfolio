@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import About from "./About";
 import Experience from "./Experience";
 import WorkSamples from "./WorkSamples";
-import Works from "./Works";
+import AIAutomation from "./AIAutomation";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import Skills from "./Skills";
@@ -14,7 +14,7 @@ export {
   About,
   Experience,
   WorkSamples,
-  Works,
+  AIAutomation,
   Feedbacks,
   Contact,
   Skills,
